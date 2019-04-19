@@ -97,6 +97,36 @@ theme:yilia
 
 ![](搭建Hexo博客/markdown-img-paste-2019040814554139.png)
 
+## 不同电脑操作
+
+### 在建立写博客的电脑操作
+
+### 在另一台电脑的操作
+
+
+1.搭建本机环境： Nodejs，git hexo框架等
+
+2.把Github上的hexo分支，也就是源文件克隆到本地
+3.进入克隆文件内部，内容就是上传的内容，就是在其他电脑上已经记录生成的内容，，如果直接运行hexo命令会出现错误，需要建立本文件内的hexo环境
+
+
+
+```bash
+git clone -b hexo + 仓库地址
+
+cd  *.github.io --仓库名
+
+npm install hexo --save （如果之前换了cnpm就用cnpm）
+
+npm install
+
+npm install hexo-deployer-git --save
+
+
+
+```
+
+此时就可以直接在本地文件夹用hexo命令写博客了，写完部署到远端，同时在用git把本地文件上传到Github仓库的hexo分支，相当于把源代码保存在那里，下次写作合并本地与远端仓库即可。
 
 #### 参考文献
 https://www.bilibili.com/video/av44544186?from=search&seid=5533406106430612562
