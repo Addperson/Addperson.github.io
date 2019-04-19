@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408115636865.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408144220192.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/02/搭建Hexo博客/markdown-img-paste-2019040814554139.png">
-<meta property="og:updated_time" content="2019-04-19T13:20:05.801Z">
+<meta property="og:updated_time" content="2019-04-19T13:23:58.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建Hexo博客">
 <meta name="twitter:description" content="环境准备1.下载Nodejs  2.进入终端，查看安装是否成功 123node -vnpm -v 3.下载cnpm并且安装hexo框架 1234567npm install -g cnpm --registry=https://registry.npm.taobao.orgcnpm -v                    ----查看安装成功cnpm install -g hexo-cli">
@@ -122,7 +122,7 @@
 <p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-2019040814554139.png" alt></p>
 <h2 id="不同电脑操作"><a href="#不同电脑操作" class="headerlink" title="不同电脑操作"></a>不同电脑操作</h2><h3 id="在建立写博客的电脑操作"><a href="#在建立写博客的电脑操作" class="headerlink" title="在建立写博客的电脑操作"></a>在建立写博客的电脑操作</h3><h3 id="在另一台电脑的操作"><a href="#在另一台电脑的操作" class="headerlink" title="在另一台电脑的操作"></a>在另一台电脑的操作</h3><p>1.搭建本机环境： Nodejs，git hexo框架等</p>
 <p>2.把Github上的hexo分支，也就是源文件克隆到本地<br>3.进入克隆文件内部，内容就是上传的内容，就是在其他电脑上已经记录生成的内容，，如果直接运行hexo命令会出现错误，需要建立本文件内的hexo环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b hexo + 仓库地址</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span>  *.github.io --仓库名</span><br><span class="line"></span><br><span class="line">npm install hexo --save （如果之前换了cnpm就用cnpm）</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b hexo + 仓库地址</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span>  *.github.io --仓库名</span><br><span class="line"></span><br><span class="line">npm install hexo --save （如果之前换了cnpm就用cnpm）</span><br><span class="line"></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>此时就可以直接在本地文件夹用hexo命令写博客了，写完部署到远端，同时在用git把本地文件上传到Github仓库的hexo分支，相当于把源代码保存在那里，下次写作合并本地与远端仓库即可。</p>
 <h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="https://www.bilibili.com/video/av44544186?from=search&amp;seid=5533406106430612562" target="_blank" rel="noopener">https://www.bilibili.com/video/av44544186?from=search&amp;seid=5533406106430612562</a></p>
 
