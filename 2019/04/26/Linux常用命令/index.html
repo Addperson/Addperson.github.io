@@ -5,15 +5,19 @@
   
 
   
-  <title>Hexo</title>
+  <title>Linux常用命令 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Linux命令学习笔记1. unix和linuxUNIX诞生  TCPIP协议，c语言诞生 UNIX有很多分支 UNIX发行版本包括linux linux是开源软件，源代码开放的UNIX 包含一个linux内核，内核版本 厂商下载内核融合其他图形环境  发行版本 所以自己可以开发自己的linux centOS国内应用多 2.开源软件绝大多数免费 源代码  自由传播，改良，销售 互联网开源技术： L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/Linux常用命令/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux命令学习笔记1. unix和linuxUNIX诞生  TCPIP协议，c语言诞生 UNIX有很多分支 UNIX发行版本包括linux linux是开源软件，源代码开放的UNIX 包含一个linux内核，内核版本 厂商下载内核融合其他图形环境  发行版本 所以自己可以开发自己的linux centOS国内应用多 2.开源软件绝大多数免费 源代码  自由传播，改良，销售 互联网开源技术： L">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-26T05:20:18.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Linux常用命令">
+<meta name="twitter:description" content="Linux命令学习笔记1. unix和linuxUNIX诞生  TCPIP协议，c语言诞生 UNIX有很多分支 UNIX发行版本包括linux linux是开源软件，源代码开放的UNIX 包含一个linux内核，内核版本 厂商下载内核融合其他图形环境  发行版本 所以自己可以开发自己的linux centOS国内应用多 2.开源软件绝大多数免费 源代码  自由传播，改良，销售 互联网开源技术： L">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/26/Linux常用命令/" class="article-date">
   <time datetime="2019-04-26T03:34:33.000Z" itemprop="datePublished">2019-04-26</time>
@@ -75,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/26/Linux常用命令/">Linux常用命令</a>
+    <h1 class="article-title" itemprop="name">
+      Linux常用命令
     </h1>
   
 
@@ -237,241 +239,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-c语言的小问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/26/c语言的小问题/" class="article-date">
-  <time datetime="2019-04-26T01:58:00.000Z" itemprop="datePublished">2019-04-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/26/c语言的小问题/">c语言的小问题</a>
-    </h1>
+    <a href="/2019/04/26/c语言的小问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">c语言的小问题</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="全局变量内存问题"><a href="#全局变量内存问题" class="headerlink" title="全局变量内存问题"></a>全局变量内存问题</h3><p>全局变量是在编译时就已经分配好的内存，大小已经固定。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>  a=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> b =<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>* c =<span class="keyword">new</span> <span class="keyword">int</span> [a*b];</span><br><span class="line"></span><br><span class="line"><span class="comment">//a,b为整型数据，c为指针（地址），存放在全局变量存储区，new出来的数组存放在堆中</span></span><br><span class="line"></span><br><span class="line">a=<span class="number">20</span>;b=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
-<p>此时指针c是不会变化的，它指向的内存块也不会变化，所以即使a和b变化，也不会影响c，c操控的大小只有100个，如果操作c控制后边的内存，就会出现内存泄漏，程序报错。</p>
-<p>如果是必须动态改变c的内容，初始分配时给一个大的值，这样不会出现内存错误。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/c语言的小问题/" data-id="cjuxmoma10001jsogroybjec9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/19/test/" class="article-date">
-  <time datetime="2019-04-19T13:14:24.000Z" itemprop="datePublished">2019-04-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/19/test/">test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/19/test/" data-id="cjuxmoma30002jsogqdg8arus" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/19/hello-world/" class="article-date">
-  <time datetime="2019-04-19T12:57:34.552Z" itemprop="datePublished">2019-04-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>ore info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/19/hello-world/markdown-img-paste-20190408155850223.png" alt><br>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/19/hello-world/" data-id="cjuxmom9v0000jsog77tgef8s" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-学习笔记——网络通信" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/09/学习笔记——网络通信/" class="article-date">
-  <time datetime="2019-04-09T08:29:30.000Z" itemprop="datePublished">2019-04-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/09/学习笔记——网络通信/">学习笔记——网络通信</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/09/学习笔记——网络通信/" data-id="cjuxmoma40003jsog7z8hivdx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-搭建Hexo博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/02/搭建Hexo博客/" class="article-date">
-  <time datetime="2019-04-02T07:28:40.000Z" itemprop="datePublished">2019-04-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/02/搭建Hexo博客/">搭建Hexo博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hexo博客搭建"><a href="#Hexo博客搭建" class="headerlink" title="Hexo博客搭建"></a>Hexo博客搭建</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>1.下载<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Nodejs</a></p>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408113609104.png" alt="下载界面" title="下载界面，左边为稳定版，右边为最新版，下载任意一个"></p>
-<p>2.进入终端，查看安装是否成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p>3.下载cnpm并且安装hexo框架</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">cnpm -v                    ----查看安装成功</span><br><span class="line"></span><br><span class="line">cnpm install -g hexo-cli   ----安装hexo</span><br><span class="line"></span><br><span class="line">hexo -v                    ----查看安装成功</span><br></pre></td></tr></table></figure>
-<h2 id="建立本地博客"><a href="#建立本地博客" class="headerlink" title="建立本地博客"></a>建立本地博客</h2><p>1.进入用户家目录（/home/user）,新建文件夹blog</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"></span><br><span class="line">mkdir blog                ----此文件夹就是博客目录，博客资源都在此处</span><br><span class="line"></span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408112917711.png" alt="生成博客内容" title="博客包含内容"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo s            ---启动博客，在本地4000端口打开,如图1</span><br><span class="line">hexo n <span class="string">"test"</span>     ---新建博客文章<span class="built_in">test</span></span><br><span class="line">hexo c            ---清除</span><br><span class="line">hexo g            ---生成</span><br><span class="line">hexo s            ---再次启动博客，此时博客更新，如图2</span><br><span class="line"></span><br><span class="line"><span class="comment">#具体hexo命令介绍可自行查找理解</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408121652468.png" alt="博客预览"></p>
-<center>图1</center>
-
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408115636865.png" alt="博客预览"></p>
-<center>图2</center>
-
-<h2 id="通过Github部署博客到远端"><a href="#通过Github部署博客到远端" class="headerlink" title="通过Github部署博客到远端"></a>通过Github部署博客到远端</h2><p>1.在Github新建仓库，名称必须为：‘用户名’.github.io<br>2.安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-<p>3.配置文件_config.yml,添加到 #Deployment</p>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408144220192.png" alt="配置文件"></p>
-<p>4.部署到Github</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>5.浏览器打开 ‘用户名’.github.io</p>
-<h2 id="主题下载"><a href="#主题下载" class="headerlink" title="主题下载"></a>主题下载</h2><p>从网上下载hexo主题的代码到本地，例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git</span><br></pre></td></tr></table></figure>
-<p>此时在blog的theme文件夹下有一个新文件夹yilia，修改配置文件_config.yml</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Extensions</span></span><br><span class="line">theme:yilia</span><br></pre></td></tr></table></figure>
-<p>可以通过上图找到所在位置，修改完毕后，清理生成再部署就会生成新主题</p>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-2019040814554139.png" alt="预览新主题"></p>
-<h2 id="不同电脑操作"><a href="#不同电脑操作" class="headerlink" title="不同电脑操作"></a>不同电脑操作</h2><h3 id="在建立博客的电脑操作"><a href="#在建立博客的电脑操作" class="headerlink" title="在建立博客的电脑操作"></a>在建立博客的电脑操作</h3><p>1.在Github仓库建立hexo分支</p>
-<p>2.同时在博客建立hexo分支</p>
-<p>3.在本地把博客内容源文件推送到远端存储</p>
-<h3 id="在另一台电脑的操作"><a href="#在另一台电脑的操作" class="headerlink" title="在另一台电脑的操作"></a>在另一台电脑的操作</h3><p>1.搭建本机环境： Nodejs，git hexo框架等</p>
-<p>2.把Github上的hexo分支，也就是源文件克隆到本地<br>3.进入克隆文件内部，内容就是上传的内容，就是在其他电脑上已经记录生成的内容，，如果直接运行hexo命令会出现错误，需要建立本文件内的hexo环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b hexo + 仓库地址</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span>  *.github.io --仓库名</span><br><span class="line"></span><br><span class="line">npm install hexo --save （如果之前换了cnpm就用cnpm）</span><br><span class="line"></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>此时就可以直接在本地文件夹用hexo命令写博客了，写完部署到远端，同时在用git把本地文件上传到Github仓库的hexo分支，相当于把源代码保存在那里，下次写作合并本地与远端仓库即可。</p>
-<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/index.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/02/搭建Hexo博客/" data-id="cjuxmoma50004jsogdexopl6z" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
