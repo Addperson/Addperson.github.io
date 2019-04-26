@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>c语言的小问题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="全局变量内存问题全局变量是在编译时就已经分配好的内存，大小已经固定。 123456789int  a=10;int b =10;int* c =new int [a*b];//a,b为整型数据，c为指针（地址），存放在全局变量存储区，new出来的数组存放在堆中a=20;b=20; 此时指针c是不会变化的，它指向的内存块也不会变化，所以即使a和b变化，也不会影响c，c操控的大小只有100个，如果操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言的小问题">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/c语言的小问题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="全局变量内存问题全局变量是在编译时就已经分配好的内存，大小已经固定。 123456789int  a=10;int b =10;int* c =new int [a*b];//a,b为整型数据，c为指针（地址），存放在全局变量存储区，new出来的数组存放在堆中a=20;b=20; 此时指针c是不会变化的，它指向的内存块也不会变化，所以即使a和b变化，也不会影响c，c操控的大小只有100个，如果操作">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-26T02:04:10.271Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c语言的小问题">
+<meta name="twitter:description" content="全局变量内存问题全局变量是在编译时就已经分配好的内存，大小已经固定。 123456789int  a=10;int b =10;int* c =new int [a*b];//a,b为整型数据，c为指针（地址），存放在全局变量存储区，new出来的数组存放在堆中a=20;b=20; 此时指针c是不会变化的，它指向的内存块也不会变化，所以即使a和b变化，也不会影响c，c操控的大小只有100个，如果操作">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-c语言的小问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/26/c语言的小问题/" class="article-date">
+  <time datetime="2019-04-26T01:58:00.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      c语言的小问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="全局变量内存问题"><a href="#全局变量内存问题" class="headerlink" title="全局变量内存问题"></a>全局变量内存问题</h3><p>全局变量是在编译时就已经分配好的内存，大小已经固定。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>  a=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> b =<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>* c =<span class="keyword">new</span> <span class="keyword">int</span> [a*b];</span><br><span class="line"></span><br><span class="line"><span class="comment">//a,b为整型数据，c为指针（地址），存放在全局变量存储区，new出来的数组存放在堆中</span></span><br><span class="line"></span><br><span class="line">a=<span class="number">20</span>;b=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+<p>此时指针c是不会变化的，它指向的内存块也不会变化，所以即使a和b变化，也不会影响c，c操控的大小只有100个，如果操作c控制后边的内存，就会出现内存泄漏，程序报错。</p>
+<p>如果是必须动态改变c的内容，初始分配时给一个大的值，这样不会出现内存错误。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/26/c语言的小问题/" data-id="cjuxgf9g30000amogso0za4cp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/19/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">test</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/26/c语言的小问题/">c语言的小问题</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/19/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/19/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/09/学习笔记——网络通信/">学习笔记——网络通信</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/02/搭建Hexo博客/">搭建Hexo博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
