@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -168,7 +168,7 @@
         
         
         <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style="display:none" class="archive-article-date">
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
@@ -229,23 +229,28 @@
 <p>线性回归</p>
 <ul>
 <li><p>单个变量</p>
-<p>$$y=a*x+b$$</p>
-</li>
-<li><p>多个变量<br>$$ h_\theta(x) = \theta_0+\theta_1x_1+\theta_2x_2 $$<br>$$ h_\theta(x) =\sum_{i=0}^n\theta_ix_i =\theta^Tx$$</p>
-</li>
+<script type="math/tex; mode=display">y=a*x+b</script></li>
+<li><p>多个变量</p>
+<script type="math/tex; mode=display">h_\theta(x) = \theta_0+\theta_1x_1+\theta_2x_2</script><script type="math/tex; mode=display">h_\theta(x) =\sum_{i=0}^n\theta_ix_i =\theta^Tx</script></li>
 </ul>
-<p>使用极大似然估计解释最小二乘<br>$$ y^{(i)}=\theta^Tx^{(i)}+\varepsilon^{(i)}$$</p>
-<ul>
+<p>使用极大似然估计解释最小二乘</p>
+<script type="math/tex; mode=display">y^{(i)}=\theta^Tx^{(i)}+\varepsilon^{(i)}</script><ul>
 <li>误差是独立同分布的，服从均值为0，方差为$\sigma^2$ 的高斯分布</li>
 </ul>
 <p>似然函数</p>
-<p>$$p(\varepsilon^{(i)})=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(\varepsilon^{(i)})^2}{2\sigma^2}\right)$$</p>
-<p>$$p(y^{(i)}|x^{(i)};\theta)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)$$</p>
-<p>$$<br>    \begin{aligned}<br>        L(\theta) &amp;= \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)\<br>        &amp;=\prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)<br>    \end{aligned}<br>$$</p>
-<p>高斯对数似然与最小二乘：</p>
-<p>$$<br>    \begin{aligned}<br>        l(\theta) &amp;=\log L(\theta)\<br>        &amp;=\log \prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)\<br>        &amp;=\sum_{i=1}^m\log\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)\<br>        &amp;=m\log\frac{1}{\sqrt{2\pi}\sigma}-\frac{1}{\sigma^2}*\frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^Tx^{(i)})^2<br>    \end{aligned}<br>$$</p>
-<p>$$<br>J(\theta)=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2<br>$$</p>
-<p>$\theta$解析式求解过程</p>
+<script type="math/tex; mode=display">p(\varepsilon^{(i)})=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(\varepsilon^{(i)})^2}{2\sigma^2}\right)</script><script type="math/tex; mode=display">p(y^{(i)}|x^{(i)};\theta)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)</script><script type="math/tex; mode=display">
+    \begin{aligned}
+        L(\theta) &= \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)\\
+        &=\prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)
+    \end{aligned}</script><p>高斯对数似然与最小二乘：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        l(\theta) &=\log L(\theta)\\
+        &=\log \prod_{i=1}^m\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)\\
+        &=\sum_{i=1}^m\log\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(y^{(i)}-\theta^Tx^{(i)})^2}{2\sigma^2}\right)\\
+        &=m\log\frac{1}{\sqrt{2\pi}\sigma}-\frac{1}{\sigma^2}*\frac{1}{2}\sum_{i=1}^m(y^{(i)}-\theta^Tx^{(i)})^2
+    \end{aligned}</script><script type="math/tex; mode=display">
+J(\theta)=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script><p>$\theta$解析式求解过程</p>
 <p>将M个N维样本组成矩阵X：</p>
 <ul>
 <li>X每一行对应一个样本，共M个</li>
@@ -253,43 +258,86 @@
 <li>为保持运算，通常设置一维常数项1</li>
 </ul>
 <p>目标函数：</p>
-<p>$$<br>    \begin{aligned}<br>        J(\theta)&amp;=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2 \<br>        &amp;=\frac{1}{2}{\left(X\theta-Y\right)}^T{\left(X\theta-Y\right)}<br>    \end{aligned}<br>$$</p>
-<p>梯度：</p>
-<p>$$<br>    \begin{aligned}<br>        \nabla_\theta J(\theta)<br>        &amp;=\nabla_\theta\left(\frac{1}{2}{\left(X\theta-Y\right)}^T{\left(X\theta-Y\right)}\right)\<br>        &amp;=\nabla_\theta\left(\frac{1}{2}{\left(\theta^TX^T-Y^T\right)}{\left(X\theta-Y\right)}\right)\<br>        &amp;=\nabla_\theta\left(\frac{1}{2}(\theta^TX^TX\theta-\theta^TX^TY-Y^TX\theta+Y^TY)\right)\<br>        &amp;=\frac{1}{2}\left(2X^TX\theta-X^TY-(Y^TX)^T\right)\<br>        &amp;=X^TX\theta-X^TY<br>    \end{aligned}<br>$$</p>
-<p>最小二乘意义下参数最优解：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        J(\theta)&=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2 \\
+        &=\frac{1}{2}{\left(X\theta-Y\right)}^T{\left(X\theta-Y\right)}   
+    \end{aligned}</script><p>梯度：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        \nabla_\theta J(\theta)
+        &=\nabla_\theta\left(\frac{1}{2}{\left(X\theta-Y\right)}^T{\left(X\theta-Y\right)}\right)\\
+        &=\nabla_\theta\left(\frac{1}{2}{\left(\theta^TX^T-Y^T\right)}{\left(X\theta-Y\right)}\right)\\ 
+        &=\nabla_\theta\left(\frac{1}{2}(\theta^TX^TX\theta-\theta^TX^TY-Y^TX\theta+Y^TY)\right)\\
+        &=\frac{1}{2}\left(2X^TX\theta-X^TY-(Y^TX)^T\right)\\
+        &=X^TX\theta-X^TY
+    \end{aligned}</script><p>最小二乘意义下参数最优解：</p>
 <p>解析式：</p>
-<p>$$<br>\theta=(X^TX)^{-1}X^TY<br>$$</p>
-<p>如果不可逆或防止过拟合，增加$\lambda$扰动：<br>$$<br>\theta=(X^TX+\lambda I)^{-1}X^TY<br>$$</p>
-<p>线性回归的复杂度惩罚因子</p>
+<script type="math/tex; mode=display">
+\theta=(X^TX)^{-1}X^TY</script><p>如果不可逆或防止过拟合，增加$\lambda$扰动：</p>
+<script type="math/tex; mode=display">
+\theta=(X^TX+\lambda I)^{-1}X^TY</script><p>线性回归的复杂度惩罚因子</p>
 <p>线性回归的目标函数为：</p>
-<p>$$<br>    \begin{aligned}<br>        J(\theta)&amp;=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2 \<br>    \end{aligned}<br>$$</p>
-<p>将目标函数增加平方和损失：</p>
-<p>$$<br>    \begin{aligned}<br>        J(\theta)&amp;=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2 +   \lambda\sum_{j=1}^{n}\theta_j^2<br>    \end{aligned}<br>$$</p>
-<p>假设$\theta$服从高斯分布，如此，经过上面推导过程，结果为增加扰动的情况</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        J(\theta)&=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2 \\
+    \end{aligned}</script><p>将目标函数增加平方和损失：</p>
+<script type="math/tex; mode=display">
+    \begin{aligned}
+        J(\theta)&=\frac{1}{2}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2 +   \lambda\sum_{j=1}^{n}\theta_j^2   
+    \end{aligned}</script><p>假设$\theta$服从高斯分布，如此，经过上面推导过程，结果为增加扰动的情况</p>
 <p>梯度下降：</p>
 <ol>
 <li>初始化参数$\theta$</li>
 <li>沿着负梯度方向迭代，更新后使$J(\theta)$更小</li>
 </ol>
-<p>$$<br>\theta=\theta-\alpha\cdot\frac{\partial J(\theta)}{\partial \theta}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+\theta=\theta-\alpha\cdot\frac{\partial J(\theta)}{\partial \theta}</script><ul>
 <li>$\alpha$为学习率，步长</li>
 </ul>
 <p>梯度方向：</p>
-<p>$$<br>\begin{aligned}<br>        \frac{\partial}{\partial \theta_j}J(\theta)&amp;=<br>        \frac{\partial}{\partial \theta_j}\frac{1}{2}\left(h_\theta(x)-y\right)^2\<br>        &amp;=2\cdot \frac{1}{2}\left(h_\theta(x)-y\right)\cdot\frac{\partial}{\partial \theta_j}\left(h_\theta(x)-y\right)\<br>        &amp;=\left(h_\theta(x)-y\right)\cdot\frac{\partial}{\partial \theta_j}\left(\sum_{i=0}^{n}\theta_ix_i-y\right)\<br>        &amp;=\left(h_\theta(x)-y\right)x_j<br>    \end{aligned}<br>$$</p>
-<h4 id="广义线性回归"><a href="#广义线性回归" class="headerlink" title="广义线性回归"></a>广义线性回归</h4><p>$$<br>y=\theta_0+\theta_1x+\theta_2x^2+\cdots+\theta_nx^n<br>$$</p>
-<p>$y$关于$\theta$为线性关系</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+        \frac{\partial}{\partial \theta_j}J(\theta)&=
+        \frac{\partial}{\partial \theta_j}\frac{1}{2}\left(h_\theta(x)-y\right)^2\\
+        &=2\cdot \frac{1}{2}\left(h_\theta(x)-y\right)\cdot\frac{\partial}{\partial \theta_j}\left(h_\theta(x)-y\right)\\
+        &=\left(h_\theta(x)-y\right)\cdot\frac{\partial}{\partial \theta_j}\left(\sum_{i=0}^{n}\theta_ix_i-y\right)\\
+        &=\left(h_\theta(x)-y\right)x_j
+    \end{aligned}</script><h4 id="广义线性回归"><a href="#广义线性回归" class="headerlink" title="广义线性回归"></a>广义线性回归</h4><script type="math/tex; mode=display">
+y=\theta_0+\theta_1x+\theta_2x^2+\cdots+\theta_nx^n</script><p>$y$关于$\theta$为线性关系</p>
 <h4 id="Logistic回归"><a href="#Logistic回归" class="headerlink" title="Logistic回归"></a>Logistic回归</h4><p>Logistic函数</p>
-<p>$$<br>g(z)=\frac{1}{1+e^{-z}}<br>$$<br>$$<br>h_\theta(x)=g(\theta^Tx)=\frac{1}{1+e^{-\theta^Tx}}<br>$$</p>
-<p>Logistic回归参数估计：</p>
+<script type="math/tex; mode=display">
+g(z)=\frac{1}{1+e^{-z}}</script><script type="math/tex; mode=display">
+h_\theta(x)=g(\theta^Tx)=\frac{1}{1+e^{-\theta^Tx}}</script><p>Logistic回归参数估计：</p>
 <ul>
-<li>假定<br>$$<br>\begin{gathered}<br>  P(y=1|x;\theta)=h_\theta(x)\<br>  P(y=0|x;\theta)=1-h_\theta(x)\<br>  P(y|x;\theta)=\left(h_\theta(x)\right)^y\left(1-h_\theta(x)\right)^{1-y}<br>\end{gathered}<br>$$ </li>
+<li>假定<script type="math/tex; mode=display">
+\begin{gathered}
+  P(y=1|x;\theta)=h_\theta(x)\\
+  P(y=0|x;\theta)=1-h_\theta(x)\\
+  P(y|x;\theta)=\left(h_\theta(x)\right)^y\left(1-h_\theta(x)\right)^{1-y}
+\end{gathered}</script></li>
 </ul>
-<p>$$<br>\begin{aligned}<br>    L(\theta) &amp;=p(Y|X;\theta)\<br>    &amp;= \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)\<br>    &amp;=\prod_{i=1}^m\left(h_\theta(x^{(i)})\right)^{y^{(i)}}\left(1-h_\theta(x^{(i)})\right)^{1-y^{(i)}}<br>\end{aligned}<br>$$<br>$$<br>\begin{aligned}<br>    l(\theta) &amp;=\log L(\theta)\<br>    &amp;= \sum_{i=1}^m y^{(i)}\log h_\theta(x^{(i)})+(1-y^{(i)})\log (1-h_\theta(x^{(i)}))<br>\end{aligned}<br>$$<br>$$<br>\begin{aligned}<br>    \frac{\partial}{\partial\theta_j}l(\theta) &amp;=\left(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)}\right)\frac{\partial}{\partial\theta_j}g(\theta^Tx)\<br>    &amp;=\left(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)}\right)g(\theta^Tx)(1-g(\theta^Tx))\frac{\partial}{\partial\theta_j}\theta^Tx\<br>    &amp;=(y(1-g(\theta^Tx))-(1-y)g(\theta^Tx))x_j\<br>    &amp;=(y-h_\theta(x))x_j\<br>\end{aligned}<br>$$</p>
-<p>参数迭代<br>logistic回归参数学习规则<br>$$<br>\theta_j:=\theta_j+\alpha(y^{(i)}-h_\theta(x^{(i)}))x_j^{(i)}<br>$$</p>
-<p>这里采用极大似然估计估计参数，所有要通过迭代梯度上升计算可以使似然函数最大的参数，通过构造代价函数cost为负的似然函数，优化问题就变为了梯度下降求解</p>
-<h4 id="对数线性模型"><a href="#对数线性模型" class="headerlink" title="对数线性模型"></a>对数线性模型</h4><p>一个事件的几率，是指该事件发生的概率与不发生的概率的比值<br>$$<br>\log it(p)=\log \frac{p}{1-p}=\log\frac{h_\theta(x)}{1-h_\theta(x)}=w^Tx<br>$$</p>
-
+<script type="math/tex; mode=display">
+\begin{aligned}
+    L(\theta) &=p(Y|X;\theta)\\
+    &= \prod_{i=1}^mp(y^{(i)}|x^{(i)};\theta)\\
+    &=\prod_{i=1}^m\left(h_\theta(x^{(i)})\right)^{y^{(i)}}\left(1-h_\theta(x^{(i)})\right)^{1-y^{(i)}}
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+    l(\theta) &=\log L(\theta)\\
+    &= \sum_{i=1}^m y^{(i)}\log h_\theta(x^{(i)})+(1-y^{(i)})\log (1-h_\theta(x^{(i)}))
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+    \frac{\partial}{\partial\theta_j}l(\theta) &=\left(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)}\right)\frac{\partial}{\partial\theta_j}g(\theta^Tx)\\ 
+    &=\left(y\frac{1}{g(\theta^Tx)}-(1-y)\frac{1}{1-g(\theta^Tx)}\right)g(\theta^Tx)(1-g(\theta^Tx))\frac{\partial}{\partial\theta_j}\theta^Tx\\  
+    &=(y(1-g(\theta^Tx))-(1-y)g(\theta^Tx))x_j\\
+    &=(y-h_\theta(x))x_j\\
+\end{aligned}</script><p>参数迭代<br>logistic回归参数学习规则</p>
+<script type="math/tex; mode=display">
+\theta_j:=\theta_j+\alpha(y^{(i)}-h_\theta(x^{(i)}))x_j^{(i)}</script><p>这里采用极大似然估计估计参数，所有要通过迭代梯度上升计算可以使似然函数最大的参数，通过构造代价函数cost为负的似然函数，优化问题就变为了梯度下降求解</p>
+<h4 id="对数线性模型"><a href="#对数线性模型" class="headerlink" title="对数线性模型"></a>对数线性模型</h4><p>一个事件的几率，是指该事件发生的概率与不发生的概率的比值</p>
+<script type="math/tex; mode=display">
+\log it(p)=\log \frac{p}{1-p}=\log\frac{h_\theta(x)}{1-h_\theta(x)}=w^Tx</script>
       
 
       
@@ -533,7 +581,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

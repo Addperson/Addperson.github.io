@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -173,7 +173,7 @@
         
         
         <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style="display:none" class="archive-article-date">
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
@@ -196,16 +196,16 @@
 <p><img src="/2019/06/28/python知识点19.7.16/copy3.png" alt></p>
 <a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>].append(<span class="number">2</span>)</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，所以改变子对象两个都改变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1, 2], &apos;2&apos;: [2, 2]}
+<pre><code>{&#39;1&#39;: [1, 1, 2], &#39;2&#39;: [2, 2]}
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : <span class="number">1</span>, <span class="string">'2'</span> : <span class="number">2</span> &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = <span class="number">5</span></span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，改变一个不影响其他。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: 1, &apos;2&apos;: 2}
+<pre><code>{&#39;1&#39;: 1, &#39;2&#39;: 2}
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = [<span class="number">3</span>,<span class="number">3</span>]</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，但第一个重新指向新列表，改变第一个，第二个不变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1], &apos;2&apos;: [2, 2]}
+<pre><code>{&#39;1&#39;: [1, 1], &#39;2&#39;: [2, 2]}
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]] <span class="comment">#原始对象</span></span><br><span class="line"> </span><br><span class="line">b = a                       <span class="comment">#赋值，传对象的引用</span></span><br><span class="line">c = copy.copy(a)            <span class="comment">#对象拷贝，浅拷贝</span></span><br><span class="line">d = copy.deepcopy(a)        <span class="comment">#对象拷贝，深拷贝</span></span><br><span class="line"> </span><br><span class="line">a.append(<span class="number">5</span>)                 <span class="comment">#修改对象a</span></span><br><span class="line">a[<span class="number">4</span>].append(<span class="string">'c'</span>)            <span class="comment">#修改对象a中的['a', 'b']数组对象</span></span><br><span class="line"> </span><br><span class="line">print( <span class="string">'a = '</span>, a )</span><br><span class="line">print( <span class="string">'b = '</span>, b )</span><br><span class="line">print( <span class="string">'c = '</span>, c )</span><br><span class="line">print( <span class="string">'d = '</span>, d )</span><br></pre></td></tr></table></figure>
-<pre><code>a =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-b =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-c =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]]
-d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
+<pre><code>a =  [1, 2, 3, 4, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], 5]
+b =  [1, 2, 3, 4, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], 5]
+c =  [1, 2, 3, 4, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]]
+d =  [1, 2, 3, 4, [&#39;a&#39;, &#39;b&#39;]]
 </code></pre><h6 id="Python中的对象包含三要素："><a href="#Python中的对象包含三要素：" class="headerlink" title="Python中的对象包含三要素："></a>Python中的对象包含三要素：</h6><p>id、type、value</p>
 <p>其中id用来唯一标识一个对象，type标识对象的类型，value是对象的值</p>
 <p>is判断的是a对象是否就是b对象，是通过id来判断的</p>
@@ -218,28 +218,28 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
 <p>NONE;</p>
 <p>False(布尔类型)</p>
 <p>所有的值为零的数</p>
-<pre><code>0（整型）
+<pre><code>   0（整型）
 
-0.0（浮点型）
+   0.0（浮点型）
 
-0L(长整型)
+   0L(长整型)
 
-0.0+0.0j(复数)
+   0.0+0.0j(复数)
 </code></pre><p>“”(空字符串)</p>
 <p><a href="空列表"></a></p>
 <p>()(空元组)</p>
 <p>{}(空字典)</p>
 <h6 id="python中主要存在四种命名方式："><a href="#python中主要存在四种命名方式：" class="headerlink" title="python中主要存在四种命名方式："></a>python中主要存在四种命名方式：</h6><p>1、object #公用方法</p>
 <p>2、_object #半保护</p>
-<pre><code> #被看作是“protect”，意思是只有类对象和子类对象自己能访问到这些变量，
-  在模块或类外不可以使用，不能用’from module import *’导入。
-# __object 是为了避免与子类的方法名称冲突， 对于该标识符描述的方法，父
-  类的方法不能轻易地被子类的方法覆盖，他们的名字实际上是
-  _classname__methodname。
-</code></pre><p>3、_ _ object  #全私有，全保护</p>
-<pre><code>#私有成员“private”，意思是只有类对象自己能访问，连子类对象也不能访
-   问到这个数据，不能用’from module import *’导入。
-</code></pre><p>4、_ _ object_ _     #内建方法，用户不要这样定义</p>
+<pre><code>             #被看作是“protect”，意思是只有类对象和子类对象自己能访问到这些变量，
+              在模块或类外不可以使用，不能用’from module import *’导入。
+            # __object 是为了避免与子类的方法名称冲突， 对于该标识符描述的方法，父
+              类的方法不能轻易地被子类的方法覆盖，他们的名字实际上是
+              _classname__methodname。
+</code></pre><p>3、<em> </em> object  #全私有，全保护</p>
+<pre><code>                   #私有成员“private”，意思是只有类对象自己能访问，连子类对象也不能访
+                      问到这个数据，不能用’from module import *’导入。
+</code></pre><p>4、<em> </em> object<em> </em>     #内建方法，用户不要这样定义</p>
 <h6 id="Python语言中有关复数的概念："><a href="#Python语言中有关复数的概念：" class="headerlink" title="Python语言中有关复数的概念："></a>Python语言中有关复数的概念：</h6><p>1、虚数不能单独存在，它们总是和一个值为0.0的实数部分一起构成一个复数</p>
 <p>2、复数由实数部分和虚数部分构成</p>
 <p>3、表示虚数的语法：real+imagej</p>
@@ -269,7 +269,7 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
 </code></pre><h6 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h6><p>map() 会根据提供的函数对指定序列做映射。</p>
 <p>第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。</p>
 <p>map() 函数语法：<br>map(function, iterable, …)</p>
-<p>参数<br>function – 函数<br>iterable – 一个或多个序列</p>
+<p>参数<br>function — 函数<br>iterable — 一个或多个序列</p>
 <p>返回值<br>Python 2.x 返回列表。</p>
 <p>Python 3.x 返回迭代器。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -518,7 +518,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

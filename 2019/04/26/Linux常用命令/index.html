@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -168,7 +168,7 @@
         
         
         <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style="display:none" class="archive-article-date">
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
@@ -237,16 +237,16 @@
 <h3 id="vim技巧"><a href="#vim技巧" class="headerlink" title="vim技巧"></a>vim技巧</h3><p>导入命令结果   :r! 命令</p>
 <p>定义快捷键  ：map 快捷键 触发命令 </p>
 <p>连续行注释  ：n1,n2s  / ^  / # /g</p>
-<pre><code>: n1,n2s /^#//g
+<pre><code>        : n1,n2s /^#//g
 
-:n1,n2s /^/\/\//g
-</code></pre><p>替换 ：ab   mymail  <a href="mailto:1043844148@qq.com" target="_blank" rel="noopener">1043844148@qq.com</a>       在vim中写mail自动变为后面<a href="mailto:1043844148@qq.com" target="_blank" rel="noopener">1043844148@qq.com</a></p>
+        :n1,n2s /^/\/\//g
+</code></pre><p>替换 ：ab   mymail  1043844148@qq.com       在vim中写mail自动变为后面1043844148@qq.com</p>
 <p>配置文件  .vimrc    /home/username/.vimrc    /root/.vimrc</p>
-<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><h3 id="一-rpm包-–源码包经过编译的二进制包"><a href="#一-rpm包-–源码包经过编译的二进制包" class="headerlink" title="一.rpm包  –源码包经过编译的二进制包"></a>一.rpm包  –源码包经过编译的二进制包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">rpm包   rpm -ivh 包全名  --安装，注意包的依赖性   </span><br><span class="line"></span><br><span class="line">rpm -Uvh 包全名  更新    </span><br><span class="line"></span><br><span class="line">rpm -e 包名  卸载  </span><br><span class="line"></span><br><span class="line">rpm -q 查询已安装包  -l 包中文件 -p未安装包查询  -f 文件属于哪个包  -a所有包</span><br><span class="line"></span><br><span class="line">-i详细信息  -R查询包依赖性</span><br><span class="line"></span><br><span class="line">rpm2cpio 包全名 |cpio -idv . 文件绝对路径</span><br><span class="line"></span><br><span class="line">yum源  --解决包的依赖性，安装过程简单但时间花费增多</span><br><span class="line"></span><br><span class="line">yum list  --查看可安装包</span><br><span class="line"></span><br><span class="line">yum search 关键字     --通过关键字查找包    </span><br><span class="line"></span><br><span class="line">yum -y install   包名   --安装</span><br><span class="line"></span><br><span class="line">yum自动安装，不需要考虑依赖性。yum自行下载</span><br><span class="line"></span><br><span class="line">yum -y update 包名  --升级</span><br><span class="line"></span><br><span class="line">yum -y remove 包名  --自动卸载，把依赖包也都卸载，此依赖包可能用于其他包，所以删除可能造成其他包的崩溃，慎用！！</span><br><span class="line"></span><br><span class="line">yum grouplist --列出所有可用软件组</span><br><span class="line"></span><br><span class="line">yum grouplist 软件组名 --安装</span><br><span class="line"></span><br><span class="line">yum groupremove 软件组名 --卸载</span><br></pre></td></tr></table></figure>
+<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><h3 id="一-rpm包-—源码包经过编译的二进制包"><a href="#一-rpm包-—源码包经过编译的二进制包" class="headerlink" title="一.rpm包  —源码包经过编译的二进制包"></a>一.rpm包  —源码包经过编译的二进制包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">rpm包   rpm -ivh 包全名  --安装，注意包的依赖性   </span><br><span class="line"></span><br><span class="line">rpm -Uvh 包全名  更新    </span><br><span class="line"></span><br><span class="line">rpm -e 包名  卸载  </span><br><span class="line"></span><br><span class="line">rpm -q 查询已安装包  -l 包中文件 -p未安装包查询  -f 文件属于哪个包  -a所有包</span><br><span class="line"></span><br><span class="line">-i详细信息  -R查询包依赖性</span><br><span class="line"></span><br><span class="line">rpm2cpio 包全名 |cpio -idv . 文件绝对路径</span><br><span class="line"></span><br><span class="line">yum源  --解决包的依赖性，安装过程简单但时间花费增多</span><br><span class="line"></span><br><span class="line">yum list  --查看可安装包</span><br><span class="line"></span><br><span class="line">yum search 关键字     --通过关键字查找包    </span><br><span class="line"></span><br><span class="line">yum -y install   包名   --安装</span><br><span class="line"></span><br><span class="line">yum自动安装，不需要考虑依赖性。yum自行下载</span><br><span class="line"></span><br><span class="line">yum -y update 包名  --升级</span><br><span class="line"></span><br><span class="line">yum -y remove 包名  --自动卸载，把依赖包也都卸载，此依赖包可能用于其他包，所以删除可能造成其他包的崩溃，慎用！！</span><br><span class="line"></span><br><span class="line">yum grouplist --列出所有可用软件组</span><br><span class="line"></span><br><span class="line">yum grouplist 软件组名 --安装</span><br><span class="line"></span><br><span class="line">yum groupremove 软件组名 --卸载</span><br></pre></td></tr></table></figure>
 <h3 id="二-源码包"><a href="#二-源码包" class="headerlink" title="二.源码包"></a>二.源码包</h3><h4 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h4><p>1，下载压缩包</p>
 <p>2，解压缩</p>
 <p>3，进入</p>
-<p>4，配置 ./configure –prefix==指定路径</p>
+<p>4，配置 ./configure —prefix==指定路径</p>
 <p>5，make</p>
 <p>6，makeinstall</p>
 <h4 id="脚本包安装"><a href="#脚本包安装" class="headerlink" title="脚本包安装"></a>脚本包安装</h4><p>1，下载压缩包</p>
@@ -282,13 +282,13 @@
 <p>i 锁定文件(对文件只能看不能改，对目录只能修改当前目录中文件内容，对目录不能操作)</p>
 <p>a 锁定文件，但只可以往里面增加(对文件只能追加，不能更改删除，对目录里只能增加和修改文件，不允许删除)</p>
 <h3 id="sudo命令：管理员的命令赋予其他用户"><a href="#sudo命令：管理员的命令赋予其他用户" class="headerlink" title="sudo命令：管理员的命令赋予其他用户"></a>sudo命令：管理员的命令赋予其他用户</h3><p>visudo命令：改变的是/etc/sudoers配置文件：用户名 ALL=(ALL) 命令（绝对路径）</p>
-<p>visudo   –直接修改文件，此命令也可以用vim实现</p>
-<p>sudo -l  –查看当前sudo命令</p>
-<p>sudo 命令（绝对路径）  –执行root赋予的命令</p>
+<p>visudo   —直接修改文件，此命令也可以用vim实现</p>
+<p>sudo -l  —查看当前sudo命令</p>
+<p>sudo 命令（绝对路径）  —执行root赋予的命令</p>
 <h2 id="文件系统管理"><a href="#文件系统管理" class="headerlink" title="文件系统管理"></a>文件系统管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df [-a(显示所有文件系统)，-h（习惯的单位容量）] 挂载点  --查看文件系统信息，分区占用情况</span><br><span class="line"></span><br><span class="line">du [-a(所有目录)，-h（习惯的单位容量），-s(只统计总大小)] 目录  --查看目录大小</span><br><span class="line"></span><br><span class="line">dumpe2fs 分区设备名 --查看分区信息</span><br><span class="line"></span><br><span class="line">mount [-l(查看挂载信息)]</span><br><span class="line"></span><br><span class="line">mount [-t文件类型，-o特殊选项]设备文件名  挂载点</span><br><span class="line"></span><br><span class="line">fdisk -l --查看分区信息</span><br></pre></td></tr></table></figure>
 <p>分区过程：</p>
 <p>1,</p>
-<p>-分区：fdisk /dev/sdb（新的硬盘）–手工给新的硬盘分区，用各种命令完成分区过程</p>
+<p>-分区：fdisk /dev/sdb（新的硬盘）—手工给新的硬盘分区，用各种命令完成分区过程</p>
 <p>-格式化：mkfs  -t ext4 /dev/sdb1   用ext4文件系统格式化分区（分区中建立一个个小格子），（注意不能格式化扩展分区，要格式化扩展分区里面的逻辑分区）</p>
 <p>-建立挂载点挂载即可使用  （用命令挂载重启后消失，需要自动挂载）</p>
 <p>2,</p>
@@ -296,16 +296,16 @@
 <p>vim /etc/fstab  修改配置文件  此配置文件在开机启动时根据文件信息自动挂载分区（开机启动默认，改变默认相当于每次开机都自己挂载）</p>
 <p>/dev/sdb1   /disk1 挂载点（空目录）         ext4文件系统  1 2</p>
 <p>注意：不能写错</p>
-<p>如果写错信息，系统启动错误：mount -o remount,rw / –改变根目录权限，挂载写权限（因为文件在/etc/fstab,），有了权限可以修改配置文件，改正确可以运行</p>
+<p>如果写错信息，系统启动错误：mount -o remount,rw / —改变根目录权限，挂载写权限（因为文件在/etc/fstab,），有了权限可以修改配置文件，改正确可以运行</p>
 <p>如果配置文件根分区信息错误，系统不会启动</p>
 <p>分配swap交换分区：</p>
-<p>1，free [-m 文件大小为MB]–查看内存和swap信息，使用情况</p>
+<p>1，free [-m 文件大小为MB]—查看内存和swap信息，使用情况</p>
 <p>cached 缓存：读数据更块</p>
 <p>buffer 缓冲：写数据更快</p>
 <p>2，-按照之前fdisk命令新建swap分区，改变ID为82，（swap专用）</p>
 <p>   -partprobe</p>
 <p>   -格式化：mkswap /dev/sdb6</p>
-<p>   -swapon /dev/sdb6  –加入分区  swapon /dev/sdb6  –取消分区     （用命令挂载重启后消失，需要自动挂载）</p>
+<p>   -swapon /dev/sdb6  —加入分区  swapon /dev/sdb6  —取消分区     （用命令挂载重启后消失，需要自动挂载）</p>
 <p>3，自动挂载分区：</p>
 <p>vim /etc/fstab  修改配置文件  </p>
 <p>/dev/sdb6   swap 挂载点         swap  0 0 </p>
@@ -315,10 +315,10 @@
 <li><p>service 独立服务名  start|stop|status|restart</p>
 </li>
 </ol>
-<p>chkconfig –list   –检查服务启动信息</p>
-<p>chkconfig –status-all   –所有rpm安装的服务的状态</p>
-<h4 id="独立服务自启动"><a href="#独立服务自启动" class="headerlink" title="独立服务自启动"></a>独立服务自启动</h4><p>1.chkconfig –level 2345  独立服务名 on –开启</p>
-<p>chkconfig   独立服务名 off  –关闭</p>
+<p>chkconfig —list   —检查服务启动信息</p>
+<p>chkconfig —status-all   —所有rpm安装的服务的状态</p>
+<h4 id="独立服务自启动"><a href="#独立服务自启动" class="headerlink" title="独立服务自启动"></a>独立服务自启动</h4><p>1.chkconfig —level 2345  独立服务名 on —开启</p>
+<p>chkconfig   独立服务名 off  —关闭</p>
 <p>2.修改/etc/rc.d/rc.local文件      /etc/rc.d/init.d/httpd start   (服务绝对路径 start)</p>
 <p>3.ntsysv命令</p>
 <h4 id="基于xinetd服务"><a href="#基于xinetd服务" class="headerlink" title="基于xinetd服务"></a>基于xinetd服务</h4><p>1.修改/etc/xinetd.d/telnet   disable=no,</p>
@@ -571,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

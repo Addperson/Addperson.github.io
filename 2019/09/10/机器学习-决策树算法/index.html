@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -168,7 +168,7 @@
         
         
         <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style="display:none" class="archive-article-date">
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
@@ -196,17 +196,26 @@
 <li>CART</li>
 </ul>
 <a id="more"></a>
-<h5 id="Bagging和随机森林"><a href="#Bagging和随机森林" class="headerlink" title="Bagging和随机森林"></a>Bagging和随机森林</h5><h5 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h5><h5 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h5><p>$$<br>\begin{aligned}<br>    H(Y|X)&amp;=H(X,Y)-H(X) \<br>    &amp;=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x}p(x)\log p(x)\<br>    &amp;=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x}\left(\sum_yp(x,y)\right)\log p(x)\<br>    &amp;=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x,y}p(x,y)\log p(x)\<br>    &amp;=-\sum_{x,y}p(x,y)\log \frac{p(x,y)}{p(x)}\<br>    &amp;=-\sum_{x,y}p(x,y)\log p(y|x)<br>\end{aligned}<br>$$</p>
-<h5 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h5><p>设$p(x)、q(x)$是$X$中取值两个概率分布，则$p$对$q$的相对熵是：<br>$$<br>D(p||q)=\sum_{x}p(x)\log \frac{p(x)}{q(x)}=E_{p(x)}\log \frac{p(x)}{q(x)}<br>$$<br>相对熵可以度量两个随机变量之间的距离</p>
+<h5 id="Bagging和随机森林"><a href="#Bagging和随机森林" class="headerlink" title="Bagging和随机森林"></a>Bagging和随机森林</h5><h5 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h5><h5 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h5><script type="math/tex; mode=display">
+\begin{aligned}
+    H(Y|X)&=H(X,Y)-H(X) \\
+    &=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x}p(x)\log p(x)\\
+    &=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x}\left(\sum_yp(x,y)\right)\log p(x)\\
+    &=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x,y}p(x,y)\log p(x)\\
+    &=-\sum_{x,y}p(x,y)\log \frac{p(x,y)}{p(x)}\\
+    &=-\sum_{x,y}p(x,y)\log p(y|x)
+\end{aligned}</script><h5 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h5><p>设$p(x)、q(x)$是$X$中取值两个概率分布，则$p$对$q$的相对熵是：</p>
+<script type="math/tex; mode=display">
+D(p||q)=\sum_{x}p(x)\log \frac{p(x)}{q(x)}=E_{p(x)}\log \frac{p(x)}{q(x)}</script><p>相对熵可以度量两个随机变量之间的距离</p>
 <h5 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h5><ul>
 <li>两个随机变量$X,Y$的互信息,定义为$X,Y$的联合分布和独立分布乘积的相对熵</li>
-<li>$$I(X,Y)=D(P(X,Y)||P(X)P(Y))$$</li>
-<li>$$I(X,Y)=\sum_{x,y}p(x,y)\log \frac{p(x,y)}{p(x)p(y)}$$</li>
+<li><script type="math/tex; mode=display">I(X,Y)=D(P(X,Y)||P(X)P(Y))</script></li>
+<li><script type="math/tex; mode=display">I(X,Y)=\sum_{x,y}p(x,y)\log \frac{p(x,y)}{p(x)p(y)}</script></li>
 </ul>
 <h5 id="其他公式（经推导得）"><a href="#其他公式（经推导得）" class="headerlink" title="其他公式（经推导得）"></a>其他公式（经推导得）</h5><ul>
-<li>$$H(Y|X)=H(X,Y)-H(X)$$</li>
-<li>$$H(Y|X)=H(Y)-I(X,Y)$$</li>
-<li>$$I(X,Y)=H(X)+H(Y)-H(X,Y)$$</li>
+<li><script type="math/tex; mode=display">H(Y|X)=H(X,Y)-H(X)</script></li>
+<li><script type="math/tex; mode=display">H(Y|X)=H(Y)-I(X,Y)</script></li>
+<li><script type="math/tex; mode=display">I(X,Y)=H(X)+H(Y)-H(X,Y)</script></li>
 </ul>
 <h5 id="决策树-1"><a href="#决策树-1" class="headerlink" title="决策树"></a>决策树</h5><ol>
 <li>决策树为树形结构，每个分支代表一个测试输出，每一个叶节点代表一种类别。</li>
@@ -233,10 +242,15 @@
 <li>计算特征$A$对数据集$D$的经验条件熵$H(D|A)$</li>
 <li>计算信息增益：$g(D,A)=H(D)-H(D|A)$</li>
 </ol>
-<h6 id="经验条件熵-H-D-A-的推导"><a href="#经验条件熵-H-D-A-的推导" class="headerlink" title="经验条件熵$H(D|A)$的推导"></a>经验条件熵$H(D|A)$的推导</h6><p>$$<br>\begin{aligned}<br>    H(D|A)&amp;=-\sum_{i,k}p(D_k,A_i)\log p(D_k|A_i)\<br>    &amp;=-\sum_{i,k}p(A_i)p(D_k|A_i)\log p(D_k|A_i)\<br>    &amp;=-\sum_{i}^np(A_i)\sum_{k=1}^Kp(D_k|A_i)\log p(D_k|A_i)\<br>    &amp;=-\sum_{i}^n\frac{|D_i|}{|D|}\sum_{k=1}^K\frac{|D_{ik}|}{|D_i|}\log \frac{|D_{ik}|}{|D_i|}\<br>\end{aligned}<br>$$</p>
-<h6 id="其他目标"><a href="#其他目标" class="headerlink" title="其他目标"></a>其他目标</h6><ul>
+<h6 id="经验条件熵-H-D-A-的推导"><a href="#经验条件熵-H-D-A-的推导" class="headerlink" title="经验条件熵$H(D|A)$的推导"></a>经验条件熵$H(D|A)$的推导</h6><script type="math/tex; mode=display">
+\begin{aligned}
+    H(D|A)&=-\sum_{i,k}p(D_k,A_i)\log p(D_k|A_i)\\
+    &=-\sum_{i,k}p(A_i)p(D_k|A_i)\log p(D_k|A_i)\\
+    &=-\sum_{i}^np(A_i)\sum_{k=1}^Kp(D_k|A_i)\log p(D_k|A_i)\\
+    &=-\sum_{i}^n\frac{|D_i|}{|D|}\sum_{k=1}^K\frac{|D_{ik}|}{|D_i|}\log \frac{|D_{ik}|}{|D_i|}\\
+\end{aligned}</script><h6 id="其他目标"><a href="#其他目标" class="headerlink" title="其他目标"></a>其他目标</h6><ul>
 <li>信息增益率：$g_r(D,A)=g(D,A)/H(A)$</li>
-<li>基尼指数：$$Gini(p)=\sum_{k=1}^Kp_k(1-p_k)=1-\sum_{k=1}^Kp_k^2=1-\sum_{k=1}^K\left(\frac{|C_k|}{|D|}\right)^2$$</li>
+<li>基尼指数：<script type="math/tex">Gini(p)=\sum_{k=1}^Kp_k(1-p_k)=1-\sum_{k=1}^Kp_k^2=1-\sum_{k=1}^K\left(\frac{|C_k|}{|D|}\right)^2</script></li>
 <li>信息增益率可以把信息增加的程度加入计算，基尼指数可以看做熵的近似计算</li>
 </ul>
 <h5 id="三种决策树算法"><a href="#三种决策树算法" class="headerlink" title="三种决策树算法"></a>三种决策树算法</h5><ul>
@@ -500,7 +514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -168,7 +168,7 @@
         
         
         <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style="display:none" class="archive-article-date">
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
@@ -201,14 +201,17 @@
 </ul>
 <a id="more"></a>
 <h4 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a>线性可分支持向量机</h4><ul>
-<li>定义：给定线性可分数据集，通过间隔最大化得到分离超平面：<br>$$<br>y(X)=W^T\phi(X)+b<br>$$<br>相应的决策函数为$f(x)=sign \left(W^T\phi(X)+b\right)$,该决策函数称为线性可分支持向量机。</li>
+<li>定义：给定线性可分数据集，通过间隔最大化得到分离超平面：<script type="math/tex; mode=display">
+y(X)=W^T\phi(X)+b</script>相应的决策函数为$f(x)=sign \left(W^T\phi(X)+b\right)$,该决策函数称为线性可分支持向量机。</li>
 <li>$\phi(X)$是某个确定的特征空间转换函数，它的作用是将$X$映射到更高的维度。最简单的就是$\phi(X)=X$。</li>
 <li>求解分离超平。面的问题可以转化为相应的凸二次规划问题</li>
 </ul>
 <h5 id="推导目标函数"><a href="#推导目标函数" class="headerlink" title="推导目标函数"></a>推导目标函数</h5><ol>
-<li>根据样本可知：$y(X_n)&gt;0,t_n=+1;y(X_n)&lt;0,t_n=-1;$<br>可知：$t_ny(X_n)&gt;0$ </li>
-<li>$W,b$等比例缩放，$t*y$也同样会缩放，为了计算我们需要把计算距离，所以：<br>$$<br>\frac{t_ny(X_n)}{|W|}=\frac{t_n(W^T\phi(X)+b)}{|W|}<br>$$</li>
-<li>目标函数：<br>$$<br>\mathop{\arg \max}_{W,b} \left{\frac{1}{|W|}\min_n[\frac{t_n(W^T\phi(X)+b)}{|W|}]\right}<br>$$</li>
+<li>根据样本可知：$y(X_n)&gt;0,t_n=+1;y(X_n)<0,t_n=-1;$ 可知：$t_ny(x_n)>0$ </0,t_n=-1;$></li>
+<li>$W,b$等比例缩放，$t*y$也同样会缩放，为了计算我们需要把计算距离，所以：<script type="math/tex; mode=display">
+\frac{t_ny(X_n)}{\|W\|}=\frac{t_n(W^T\phi(X)+b)}{\|W\|}</script></li>
+<li>目标函数：<script type="math/tex; mode=display">
+\mathop{\arg \max}_{W,b} \left\{\frac{1}{\|W\|}\min_n[\frac{t_n(W^T\phi(X)+b)}{\|W\|}]\right\}</script></li>
 </ol>
 <h6 id="函数间隔和几何间隔"><a href="#函数间隔和几何间隔" class="headerlink" title="函数间隔和几何间隔"></a>函数间隔和几何间隔</h6><ul>
 <li>目标函数：$y(X)=W^T\phi(X)+b$</li>
@@ -218,31 +221,62 @@
 <h5 id="建立目标函数"><a href="#建立目标函数" class="headerlink" title="建立目标函数"></a>建立目标函数</h5><ol>
 <li>由以上可知可以通过缩放$W$使$|y|&gt;=1$</li>
 <li>约束条件：$t_n(W^T\phi(X_n)+b)=1$</li>
-<li>原目标函数：<br>$$<br>\arg \max_{W,b} \left{\frac{1}{|W|}\min_n[\frac{t_n(W^T\phi(X_n)+b)}{|W|}]\right}<br>$$</li>
-<li>新目标函数：<br>$$<br>\arg \min_{W,b}\frac{1}{2}|W|^2<br>$$</li>
+<li>原目标函数：<script type="math/tex; mode=display">
+\arg \max_{W,b} \left\{\frac{1}{\|W\|}\min_n[\frac{t_n(W^T\phi(X_n)+b)}{\|W\|}]\right\}</script></li>
+<li>新目标函数：<script type="math/tex; mode=display">
+\arg \min_{W,b}\frac{1}{2}\|W\|^2</script></li>
 </ol>
-<h5 id="拉格朗日乘子法"><a href="#拉格朗日乘子法" class="headerlink" title="拉格朗日乘子法"></a>拉格朗日乘子法</h5><p>$$<br>L(W,b,\alpha)=\frac{1}{2}|W|^2-\sum_{n=1}^N\alpha_n{t_n(W^T\phi(X_n)+b)-1}<br>$$</p>
-<ol>
-<li>原问题是极小极大问题<br>$$<br>\min_{W,b} \max_\alpha L(W,b,\alpha)<br>$$</li>
-<li><p>原问题的对偶问题是极大极小问题<br>$$<br>\max_\alpha \min_{W,b} L(W,b,\alpha)<br>$$</p>
-</li>
-<li><p>将拉格朗日函数分别对$W,b$求导并令其为0,是为了先求极小值：<br>$$<br>\begin{aligned}<br> &amp;\frac{\partial L}{\partial W}=0\Rightarrow W=\sum_{n=1}^N\alpha_nt_n\phi(X_n)\<br> &amp;\frac{\partial L}{\partial b}=0\Rightarrow 0=\sum_{n=1}^N\alpha_nt_n<br>\end{aligned}<br>$$</p>
-</li>
-<li>将所求结果代入拉格朗日函数中，得到：<br>$$<br>\widetilde{L}(\alpha)=\sum_{n=1}^N\alpha_n-\frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)<br>$$</li>
-<li>上式已经求出了针对$W,b$的极小值,所以通过求极大值求解，整理得：<br>$$<br>\begin{aligned}<br> &amp;\min_\alpha \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)-\sum_{n=1}^N\alpha_n\<br> &amp;\sum_{n=1}^N\alpha_nt_n=0\<br> &amp;\alpha_n&gt;=0, n=1,2,3\dots N<br>\end{aligned}<br>$$</li>
-<li>求解$\alpha^<em>$,计算：<br>$$<br>\begin{aligned}<br> &amp; W^</em>=\sum_{n=1}^N\alpha_n^<em>t_n\phi(X_n)\<br> &amp; b^</em>=y_j-\sum_{n=1}^N \alpha_n^<em>y_n(x_n,x_j)<br>\end{aligned}<br>$$<br>求出分离超平面：<br>$$<br>W^</em>\phi(X)+b^<em>=0<br>$$<br>分类决策函数：<br>$$<br>f(x)=sign(W^</em>\phi(X)+b^*)<br>$$</li>
+<h5 id="拉格朗日乘子法"><a href="#拉格朗日乘子法" class="headerlink" title="拉格朗日乘子法"></a>拉格朗日乘子法</h5><script type="math/tex; mode=display">
+L(W,b,\alpha)=\frac{1}{2}\|W\|^2-\sum_{n=1}^N\alpha_n\{t_n(W^T\phi(X_n)+b)-1\}</script><ol>
+<li>原问题是极小极大问题<script type="math/tex; mode=display">
+\min_{W,b} \max_\alpha L(W,b,\alpha)</script></li>
+<li><p>原问题的对偶问题是极大极小问题</p>
+<script type="math/tex; mode=display">
+\max_\alpha \min_{W,b} L(W,b,\alpha)</script></li>
+<li><p>将拉格朗日函数分别对$W,b$求导并令其为0,是为了先求极小值：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+ &\frac{\partial L}{\partial W}=0\Rightarrow W=\sum_{n=1}^N\alpha_nt_n\phi(X_n)\\
+ &\frac{\partial L}{\partial b}=0\Rightarrow 0=\sum_{n=1}^N\alpha_nt_n
+\end{aligned}</script></li>
+<li>将所求结果代入拉格朗日函数中，得到：<script type="math/tex; mode=display">
+\widetilde{L}(\alpha)=\sum_{n=1}^N\alpha_n-\frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)</script></li>
+<li>上式已经求出了针对$W,b$的极小值,所以通过求极大值求解，整理得：<script type="math/tex; mode=display">
+\begin{aligned}
+ &\min_\alpha \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)-\sum_{n=1}^N\alpha_n\\
+ &\sum_{n=1}^N\alpha_nt_n=0\\
+ &\alpha_n>=0, n=1,2,3\dots N
+\end{aligned}</script></li>
+<li>求解$\alpha^*$,计算：<script type="math/tex; mode=display">
+\begin{aligned}
+ & W^*=\sum_{n=1}^N\alpha_n^*t_n\phi(X_n)\\
+ & b^*=y_j-\sum_{n=1}^N \alpha_n^*y_n(x_n,x_j)
+\end{aligned}</script>求出分离超平面：<script type="math/tex; mode=display">
+W^*\phi(X)+b^*=0</script>分类决策函数：<script type="math/tex; mode=display">
+f(x)=sign(W^*\phi(X)+b^*)</script></li>
 <li>支持向量由$KKT$互补条件可知：$a^<em>_i(t_n(W^</em>\phi(X)+b^<em>)-1)=0$,对于$a_i^</em>&gt;0$的实例点，有$t_n(W^<em>\phi(X)+b^</em>)=1或W^<em>\phi(X)+b^</em>)=\pm1$</li>
 </ol>
 <h4 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h4><ul>
-<li>若数据线性不可分，则增加松弛因子$\xi_n \geq0 $,使函数间隔加上松弛变大于等于1，这样约束条件变成：<br>$$<br>t_n(W^T\phi(X_n)+b)\geq1-\xi_n<br>$$</li>
-<li>目标函数：<br>$$<br>\min_{W,b}\frac{1}{2}|W|^2+C\sum_{n=1}^N\xi_n<br>$$</li>
-<li>和线性可分支持向量机推导相同，最后得到的优化任务为：<br>$$<br>\begin{aligned}<br>  &amp;\min_\alpha \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)-\sum_{n=1}^N\alpha_n\<br>  &amp;\sum_{n=1}^N\alpha_nt_n=0\<br>  &amp;\alpha_n&gt;=0, n=1,2,3\dots N\<br>  &amp;C-a_n-\mu_n=0\<br>  &amp;\mu_n&gt;=0, n=1,2,3\dots N<br>\end{aligned}<br>$$</li>
+<li>若数据线性不可分，则增加松弛因子$\xi_n \geq0 $,使函数间隔加上松弛变大于等于1，这样约束条件变成：<script type="math/tex; mode=display">
+t_n(W^T\phi(X_n)+b)\geq1-\xi_n</script></li>
+<li>目标函数：<script type="math/tex; mode=display">
+\min_{W,b}\frac{1}{2}\|W\|^2+C\sum_{n=1}^N\xi_n</script></li>
+<li>和线性可分支持向量机推导相同，最后得到的优化任务为：<script type="math/tex; mode=display">
+\begin{aligned}
+  &\min_\alpha \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)-\sum_{n=1}^N\alpha_n\\
+  &\sum_{n=1}^N\alpha_nt_n=0\\
+  &\alpha_n>=0, n=1,2,3\dots N\\
+  &C-a_n-\mu_n=0\\
+  &\mu_n>=0, n=1,2,3\dots N
+\end{aligned}</script></li>
 <li>最后所求得的分离超平面与决策函数同上，需要注意在计算$b^*$时，需要满足条件$O&lt;\alpha_n&lt;C$的向量</li>
 </ul>
 <h4 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h4><ul>
 <li>使用核函数，将输入空间映射到特征空间，从而使得原本线性不可分的样本可以在特征空间可分，由推导过程可知，最后的优化任务需要计算向量的内积，我们不需要再通过计算推导，直接通过核函数计算内积</li>
-<li>多项式核函数：<br>$$<br>k\langle x_1,x_2\rangle=(\langle x_1,x_2\rangle+R)^d<br>$$</li>
-<li>高斯核函数：<br>$$<br>k\langle x_1,x_2\rangle=\exp\left {-\frac{|x_1-x_2|^2}{2\sigma^2}\right}<br>$$</li>
+<li>多项式核函数：<script type="math/tex; mode=display">
+k\langle x_1,x_2\rangle=(\langle x_1,x_2\rangle+R)^d</script></li>
+<li>高斯核函数：<script type="math/tex; mode=display">
+k\langle x_1,x_2\rangle=\exp\left \{-\frac{\|x_1-x_2\|^2}{2\sigma^2}\right\}</script></li>
 <li>字符串核函数</li>
 </ul>
 
@@ -480,7 +514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
