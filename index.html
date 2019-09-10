@@ -46,7 +46,7 @@
 			<img src="/assets/me.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Addperson</a></h1>
 		</hgroup>
 		
 
@@ -104,7 +104,7 @@
 				<img src="/assets/me.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Addperson</h1>
 			</hgroup>
 			
 			
@@ -182,86 +182,9 @@
 <p><img src="/2019/06/28/python知识点19.7.16/copy2.png" alt></p>
 <p>b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。</p>
 <p><img src="/2019/06/28/python知识点19.7.16/copy3.png" alt></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>].append(<span class="number">2</span>)</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，所以改变子对象两个都改变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1, 2], &apos;2&apos;: [2, 2]}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : <span class="number">1</span>, <span class="string">'2'</span> : <span class="number">2</span> &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = <span class="number">5</span></span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，改变一个不影响其他。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: 1, &apos;2&apos;: 2}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = [<span class="number">3</span>,<span class="number">3</span>]</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，但第一个重新指向新列表，改变第一个，第二个不变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1], &apos;2&apos;: [2, 2]}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]] <span class="comment">#原始对象</span></span><br><span class="line"> </span><br><span class="line">b = a                       <span class="comment">#赋值，传对象的引用</span></span><br><span class="line">c = copy.copy(a)            <span class="comment">#对象拷贝，浅拷贝</span></span><br><span class="line">d = copy.deepcopy(a)        <span class="comment">#对象拷贝，深拷贝</span></span><br><span class="line"> </span><br><span class="line">a.append(<span class="number">5</span>)                 <span class="comment">#修改对象a</span></span><br><span class="line">a[<span class="number">4</span>].append(<span class="string">'c'</span>)            <span class="comment">#修改对象a中的['a', 'b']数组对象</span></span><br><span class="line"> </span><br><span class="line">print( <span class="string">'a = '</span>, a )</span><br><span class="line">print( <span class="string">'b = '</span>, b )</span><br><span class="line">print( <span class="string">'c = '</span>, c )</span><br><span class="line">print( <span class="string">'d = '</span>, d )</span><br></pre></td></tr></table></figure>
-<pre><code>a =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-b =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-c =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]]
-d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
-</code></pre><h6 id="Python中的对象包含三要素："><a href="#Python中的对象包含三要素：" class="headerlink" title="Python中的对象包含三要素："></a>Python中的对象包含三要素：</h6><p>id、type、value</p>
-<p>其中id用来唯一标识一个对象，type标识对象的类型，value是对象的值</p>
-<p>is判断的是a对象是否就是b对象，是通过id来判断的</p>
-<p>如果a,b为字符串不可变类型，指向相同地址，所以  a is b</p>
-<p>==判断的是a对象的值是否和b对象的值相等，是通过value来判断的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'123'</span></span><br><span class="line">b=<span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a <span class="keyword">is</span> b</span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><h6 id="python中的布尔值"><a href="#python中的布尔值" class="headerlink" title="python中的布尔值"></a>python中的布尔值</h6><p>下列对象的布尔值都是False：</p>
-<p>NONE;</p>
-<p>False(布尔类型)</p>
-<p>所有的值为零的数</p>
-<pre><code>0（整型）
-
-0.0（浮点型）
-
-0L(长整型)
-
-0.0+0.0j(复数)
-</code></pre><p>“”(空字符串)</p>
-<p><a href="空列表"></a></p>
-<p>()(空元组)</p>
-<p>{}(空字典)</p>
-<h6 id="python中主要存在四种命名方式："><a href="#python中主要存在四种命名方式：" class="headerlink" title="python中主要存在四种命名方式："></a>python中主要存在四种命名方式：</h6><p>1、object #公用方法</p>
-<p>2、_object #半保护</p>
-<pre><code> #被看作是“protect”，意思是只有类对象和子类对象自己能访问到这些变量，
-  在模块或类外不可以使用，不能用’from module import *’导入。
-# __object 是为了避免与子类的方法名称冲突， 对于该标识符描述的方法，父
-  类的方法不能轻易地被子类的方法覆盖，他们的名字实际上是
-  _classname__methodname。
-</code></pre><p>3、_ _ object  #全私有，全保护</p>
-<pre><code>#私有成员“private”，意思是只有类对象自己能访问，连子类对象也不能访
-   问到这个数据，不能用’from module import *’导入。
-</code></pre><p>4、_ _ object_ _     #内建方法，用户不要这样定义</p>
-<h6 id="Python语言中有关复数的概念："><a href="#Python语言中有关复数的概念：" class="headerlink" title="Python语言中有关复数的概念："></a>Python语言中有关复数的概念：</h6><p>1、虚数不能单独存在，它们总是和一个值为0.0的实数部分一起构成一个复数</p>
-<p>2、复数由实数部分和虚数部分构成</p>
-<p>3、表示虚数的语法：real+imagej</p>
-<p>4、实数部分和虚数部分都是浮点数</p>
-<p>5、虚数部分必须有后缀j或J</p>
-<p>复数的内建属性：</p>
-<p>复数对象拥有数据属性，分别为该复数的实部和虚部。</p>
-<p>复数还拥有conjugate方法，调用它可以返回该复数的共轭复数对象。</p>
-<p>复数属性：real(复数的实部)、imag(复数的虚部)、conjugate()（返回复数的共轭复数）</p>
-<h6 id="python-装饰器"><a href="#python-装饰器" class="headerlink" title="python 装饰器"></a>python 装饰器</h6><p><a href="https://www.runoob.com/w3cnote/python-func-decorators.html" target="_blank" rel="noopener">python函数装饰器</a></p>
-<h6 id="列表-，元组，字典，集合"><a href="#列表-，元组，字典，集合" class="headerlink" title="列表 ，元组，字典，集合"></a>列表 ，元组，字典，集合</h6><p>1、Python 中的 tuple 结构为 “不可变序列”，用小括号表示。为了区别数学中表示优先级的小括号，当 tuple 中只含一个元素时，需要在元素后加上逗号。如（1，）</p>
-<h6 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h6><p>Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。</p>
-<p>最典型的例子，如要输出字符串 \n，由于反斜杠的转义，因此一般的输出语句为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'\\n'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>\n
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">r"\\n"</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>\\n
-</code></pre><p><img src="/2019/06/28/python知识点19.7.16/and,or,not.png" alt></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &gt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>c
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &gt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>&gt;<span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>False
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &lt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &lt; <span class="string">'b'</span> <span class="keyword">and</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>c
-</code></pre><h6 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h6><p>map() 会根据提供的函数对指定序列做映射。</p>
-<p>第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。</p>
-<p>map() 函数语法：<br>map(function, iterable, …)</p>
-<p>参数<br>function – 函数<br>iterable – 一个或多个序列</p>
-<p>返回值<br>Python 2.x 返回列表。</p>
-<p>Python 3.x 返回迭代器。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2019/06/28/python知识点19.7.16/#more">more >></a>
+        
       
 
       
@@ -336,141 +259,9 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
 <p>厂商下载内核融合其他图形环境  发行版本</p>
 <p>所以自己可以开发自己的linux</p>
 <p>centOS国内应用多</p>
-<h2 id="2-开源软件"><a href="#2-开源软件" class="headerlink" title="2.开源软件"></a>2.开源软件</h2><p>绝大多数免费 源代码  自由传播，改良，销售</p>
-<p>互联网开源技术：</p>
-<p>LAMP</p>
-<p>Linux 操作系统</p>
-<p>Apache web服务器</p>
-<p>MySQL 数据库</p>
-<p>PHP    编程语言</p>
-<h2 id="3-应用领域"><a href="#3-应用领域" class="headerlink" title="3.应用领域"></a>3.应用领域</h2><p>企业服务器，网站服务器：linux服务器</p>
-<p>嵌入式：移动终端:安卓 ios底层都是linux</p>
-<p>智能家电 </p>
-<p>电影娱乐</p>
-<h2 id="4-学习方法"><a href="#4-学习方法" class="headerlink" title="4.学习方法"></a>4.学习方法</h2><p>windows图形界面 易用性 </p>
-<p>linux采用命令行界面 考虑稳定性，安全性</p>
-<p>DHCP</p>
-<blockquote>
-<p>Windows：</p>
-</blockquote>
-<p>系统分区：把硬盘分块，分成小硬盘</p>
-<p>高级格式化：写入文件系统。</p>
-<p> 1.把分区飞分为小数据块，一般大小4kb，文件存放数据块里。</p>
-<p> 2.每个文件有编号，根据标号寻找相应条款，上面记录文件存放相应位置，以此寻找相应的数据块拼凑成文件</p>
-<p>编号：Inode号</p>
-<p>分区+格式化+分配盘符就可以使用。</p>
-<blockquote>
-<p>linux：</p>
-</blockquote>
-<p>linux中所有设备都是文件。存放在：/dev/，不同设备有不同目录</p>
-<p>硬盘设备文件名，分区设备文件名：每个分区定义设备文件名</p>
-<p>分区+格式化+分区 建立设备文件名+分配盘符</p>
-<p>linux把分配盘符叫做挂载</p>
-<h2 id="linux文件处理命令"><a href="#linux文件处理命令" class="headerlink" title="linux文件处理命令"></a>linux文件处理命令</h2><p>命令格式：</p>
-<p>命令  [选项]  [参数]</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ls  -a all所有文件 -l long 所有信息 -d 显示当前目录</span><br><span class="line"></span><br><span class="line">mkdir 生成目录  -p在不存在文件下继续生成   </span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span>   进入</span><br><span class="line"></span><br><span class="line"><span class="built_in">pwd</span>  显示当前目录</span><br><span class="line"></span><br><span class="line">rmdir  删除空目录</span><br><span class="line"></span><br><span class="line">cp 复制粘贴 -r 可复制目录 -p保留原属性，文件最后操作时间不变 </span><br><span class="line"></span><br><span class="line">mv 剪切</span><br><span class="line"></span><br><span class="line">rm 删除文件或目录 -r 删除目录  -f强制删除</span><br><span class="line"></span><br><span class="line">touch 创建文件</span><br><span class="line"></span><br><span class="line">cat 查看文件 tac</span><br><span class="line"></span><br><span class="line">more查看多页文件</span><br><span class="line"></span><br><span class="line">less可向上翻</span><br><span class="line"></span><br><span class="line">head -n查看多少行</span><br><span class="line"></span><br><span class="line">tail -n -f动态显示文件内容</span><br></pre></td></tr></table></figure>
-<h2 id="连接命令"><a href="#连接命令" class="headerlink" title="连接命令"></a>连接命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ln  -s 软连接 ，相当于快捷方式</span><br><span class="line"></span><br><span class="line">ln  硬连接 同一个文件复制，同步更新 -i相同。删除源文件，硬连接还在</span><br><span class="line"></span><br><span class="line">不同：硬连接不可跨分区，不可连接目录</span><br></pre></td></tr></table></figure>
-<h2 id="权限管理命令："><a href="#权限管理命令：" class="headerlink" title="权限管理命令："></a>权限管理命令：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">chmod  ugoa +-= rwx   改变权限</span><br><span class="line"></span><br><span class="line">chmod 777     r=4  w=2  x=1</span><br><span class="line"></span><br><span class="line">chmod -R 递归改变目录里所有文件权限</span><br><span class="line"></span><br><span class="line">file     r:cat/more/head/tail/less</span><br><span class="line"></span><br><span class="line">	 w:vim</span><br><span class="line"></span><br><span class="line">	 x:script <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">directory   r:ls</span><br><span class="line"></span><br><span class="line">            w:mkdir/touch/rmdir/rm</span><br><span class="line"></span><br><span class="line">            x:<span class="built_in">cd</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">makdir touch 默认权限 755</span><br><span class="line"></span><br><span class="line"><span class="built_in">umask</span>改变默认生成文件权限  chmod chown chgrp</span><br></pre></td></tr></table></figure>
-<h2 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">find [搜索范围] [匹配条件]</span><br><span class="line"></span><br><span class="line">find  -name -iname  * ?  </span><br><span class="line"></span><br><span class="line">      -size +-   </span><br><span class="line">   </span><br><span class="line">      -user -group</span><br><span class="line"> </span><br><span class="line">      -amin -cmin -mmin</span><br><span class="line"></span><br><span class="line">      -<span class="built_in">type</span> f d l    </span><br><span class="line"></span><br><span class="line">      -inum</span><br><span class="line"></span><br><span class="line">      -a -o   </span><br><span class="line"></span><br><span class="line">      -<span class="built_in">exec</span>/-ok  命令 &#123;&#125; \;</span><br><span class="line"></span><br><span class="line">locate -i  updatedb</span><br><span class="line"></span><br><span class="line"><span class="built_in">which</span> whereis</span><br><span class="line"></span><br><span class="line">grep -i -v</span><br></pre></td></tr></table></figure>
-<h2 id="帮助命令："><a href="#帮助命令：" class="headerlink" title="帮助命令："></a>帮助命令：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">man 命令或配置文件 </span><br><span class="line"></span><br><span class="line">命令 NAME 作用 、 选项</span><br><span class="line"></span><br><span class="line">配置文件 NAME 存放信息  文件格式</span><br><span class="line"></span><br><span class="line">whattis 命令简短信息   apropos 配置文件简短信息</span><br><span class="line"></span><br><span class="line">命令 --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">info </span><br><span class="line"></span><br><span class="line"><span class="built_in">help</span>  查看shell内置命令信息</span><br></pre></td></tr></table></figure>
-<h2 id="文件压缩"><a href="#文件压缩" class="headerlink" title="文件压缩"></a>文件压缩</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">zip   -r (压缩目录)  .zip </span><br><span class="line"></span><br><span class="line">unzip</span><br><span class="line"></span><br><span class="line">gzip  .gz 压缩</span><br><span class="line"></span><br><span class="line">gunzip   解压缩  （gzip -d）</span><br><span class="line"></span><br><span class="line">tar -cf -xf   .tar   打包</span><br><span class="line"></span><br><span class="line">tar -zcf -zxf  .tar.gz   打包并压缩    解压</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bzip2  .bz2  压缩</span><br><span class="line"></span><br><span class="line">bunzip2</span><br><span class="line"></span><br><span class="line">tar -cjf -xjf    .tar.bz2    打包并压缩    解压</span><br></pre></td></tr></table></figure>
-<h2 id="网络命令"><a href="#网络命令" class="headerlink" title="网络命令"></a>网络命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">write  wall 发送信息</span><br><span class="line"></span><br><span class="line">last lastlog 查看当前历史用户，最后一次登录时间</span><br><span class="line"></span><br><span class="line">ping  traceroute  探测远程主机</span><br><span class="line"></span><br><span class="line">netstat 当前网络状态</span><br><span class="line"></span><br><span class="line">mount umount ， 挂载命令</span><br></pre></td></tr></table></figure>
-<h2 id="关机重启"><a href="#关机重启" class="headerlink" title="关机重启"></a>关机重启</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">shutdown  [选项] 时间   -c 取消前一个关机命令   -h 关机  -r 重启    </span><br><span class="line"></span><br><span class="line">poweroff     halt    init0  关机 </span><br><span class="line"></span><br><span class="line">reboot    init6      重启</span><br><span class="line"></span><br><span class="line"><span class="built_in">logout</span> 退出用户</span><br></pre></td></tr></table></figure>
-<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vim 文件     命令模式   插入模式   编辑模式</span><br><span class="line"></span><br><span class="line">插入命令  aio</span><br><span class="line"></span><br><span class="line">定位  :<span class="built_in">set</span> nu  :n</span><br><span class="line"></span><br><span class="line">删除  x nx dd ndd</span><br><span class="line"></span><br><span class="line">复制和剪切   yy p   dd p</span><br><span class="line"></span><br><span class="line">替换和恢复  r/R  u</span><br><span class="line"></span><br><span class="line">搜索和替换   /关键词 n      :范围/要替换关键词/替换关键词/g  或/c</span><br><span class="line"></span><br><span class="line">保存和退出  :w  :w 指定文件名     :wq  ZZ   ：q!      ：wq!</span><br></pre></td></tr></table></figure>
-<h3 id="vim技巧"><a href="#vim技巧" class="headerlink" title="vim技巧"></a>vim技巧</h3><p>导入命令结果   :r! 命令</p>
-<p>定义快捷键  ：map 快捷键 触发命令 </p>
-<p>连续行注释  ：n1,n2s  / ^  / # /g</p>
-<pre><code>: n1,n2s /^#//g
-
-:n1,n2s /^/\/\//g
-</code></pre><p>替换 ：ab   mymail  <a href="mailto:1043844148@qq.com" target="_blank" rel="noopener">1043844148@qq.com</a>       在vim中写mail自动变为后面<a href="mailto:1043844148@qq.com" target="_blank" rel="noopener">1043844148@qq.com</a></p>
-<p>配置文件  .vimrc    /home/username/.vimrc    /root/.vimrc</p>
-<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><h3 id="一-rpm包-–源码包经过编译的二进制包"><a href="#一-rpm包-–源码包经过编译的二进制包" class="headerlink" title="一.rpm包  –源码包经过编译的二进制包"></a>一.rpm包  –源码包经过编译的二进制包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">rpm包   rpm -ivh 包全名  --安装，注意包的依赖性   </span><br><span class="line"></span><br><span class="line">rpm -Uvh 包全名  更新    </span><br><span class="line"></span><br><span class="line">rpm -e 包名  卸载  </span><br><span class="line"></span><br><span class="line">rpm -q 查询已安装包  -l 包中文件 -p未安装包查询  -f 文件属于哪个包  -a所有包</span><br><span class="line"></span><br><span class="line">-i详细信息  -R查询包依赖性</span><br><span class="line"></span><br><span class="line">rpm2cpio 包全名 |cpio -idv . 文件绝对路径</span><br><span class="line"></span><br><span class="line">yum源  --解决包的依赖性，安装过程简单但时间花费增多</span><br><span class="line"></span><br><span class="line">yum list  --查看可安装包</span><br><span class="line"></span><br><span class="line">yum search 关键字     --通过关键字查找包    </span><br><span class="line"></span><br><span class="line">yum -y install   包名   --安装</span><br><span class="line"></span><br><span class="line">yum自动安装，不需要考虑依赖性。yum自行下载</span><br><span class="line"></span><br><span class="line">yum -y update 包名  --升级</span><br><span class="line"></span><br><span class="line">yum -y remove 包名  --自动卸载，把依赖包也都卸载，此依赖包可能用于其他包，所以删除可能造成其他包的崩溃，慎用！！</span><br><span class="line"></span><br><span class="line">yum grouplist --列出所有可用软件组</span><br><span class="line"></span><br><span class="line">yum grouplist 软件组名 --安装</span><br><span class="line"></span><br><span class="line">yum groupremove 软件组名 --卸载</span><br></pre></td></tr></table></figure>
-<h3 id="二-源码包"><a href="#二-源码包" class="headerlink" title="二.源码包"></a>二.源码包</h3><h4 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h4><p>1，下载压缩包</p>
-<p>2，解压缩</p>
-<p>3，进入</p>
-<p>4，配置 ./configure –prefix==指定路径</p>
-<p>5，make</p>
-<p>6，makeinstall</p>
-<h4 id="脚本包安装"><a href="#脚本包安装" class="headerlink" title="脚本包安装"></a>脚本包安装</h4><p>1，下载压缩包</p>
-<p>2，解压缩</p>
-<p>3，进入</p>
-<p>4，运行脚本 ./setup.sh</p>
-<h2 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h2><h3 id="用户管理-："><a href="#用户管理-：" class="headerlink" title="用户管理 ："></a>用户管理 ：</h3><p>/etc/passwd</p>
-<p>用户账户 ： 密码(不显示) ：UID（用户ID）：GID（用户初始组ID) : 说明 ：家目录 ：登陆后shell /bin/bash</p>
-<p>man 5 </p>
-<p>/etc/shadow 存放密码 </p>
-<p>用户名 ：加密密码（！！或* 表示无密码，不能登陆）：最后修改时间 ：修改间隔 ：有效期 ：警告时间 ：到期后宽限时间 ：失效时间（小于等于有效期）：保留字段</p>
-<h3 id="组管理："><a href="#组管理：" class="headerlink" title="组管理："></a>组管理：</h3><p>/etc/group</p>
-<p>用户创建时生成和用户名一样的用户组，叫初始组，只能有一个。 用户可以添加到其他组获得其他组的权限，可以添加到无限个组中</p>
-<p>组名 ：组密码标志 ：GID ：附加用户</p>
-<p>/etc/gshadow</p>
-<p>组名 ：组密码 ：组管理名 ： 组中附加用户</p>
-<h3 id="用户家目录-："><a href="#用户家目录-：" class="headerlink" title="用户家目录 ："></a>用户家目录 ：</h3><p>普通用户：/home/用户名/</p>
-<p>超级优户：/root/</p>
-<p>用户邮箱： /var/spool/mail/用户名/</p>
-<p>用户模板目录：/etc/skel/</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">useradd 用户名</span><br><span class="line"></span><br><span class="line">用户默认值文件 :/etc/default/useradd     /etc/login.defs</span><br><span class="line"></span><br><span class="line">passwd [-S查看账户密码信息 -l锁定用户 -u解锁用户 ] 用户名</span><br><span class="line"></span><br><span class="line">usermod 改变用户信息， change [-L锁定 -U解锁]改变用户密码信息</span><br><span class="line"></span><br><span class="line">userdel 用户名</span><br><span class="line"></span><br><span class="line">id 用户名 查看用户相关id</span><br><span class="line"></span><br><span class="line">su - （“-”必须加） 用户名 --切换用户</span><br><span class="line"></span><br><span class="line">su - root -c “useradd user1” --不切换为root，执行只有root才有权限的命令</span><br><span class="line"></span><br><span class="line">groupadd [-g 修改组ID]组名</span><br><span class="line"></span><br><span class="line">groupmod [-g ，-n修改组名]组名</span><br><span class="line"></span><br><span class="line">groupdel 组名</span><br><span class="line"></span><br><span class="line">gpasswd [-a 用户名(用户加入组)，-d用户名(把用户从组中删除)] 组名</span><br></pre></td></tr></table></figure>
-<h3 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ACL权限 ：用于给用户单独设置权限</span><br><span class="line"></span><br><span class="line">setfacl [-m u：用户名：权限 （设定权限），-m g：组名：权限 （设定权限）]文件 --设置ACL权限            </span><br><span class="line"></span><br><span class="line">setfacl [-m m：权限 （设定权限）]文件   --设置最大ACL权限  mask：</span><br><span class="line"></span><br><span class="line">getfacl 用户名 --获取文件ACL权限</span><br><span class="line"></span><br><span class="line">setfacl [-x u：用户名，-x g：组名]文件  --删除文件ACL权限</span><br><span class="line"></span><br><span class="line">setfacl -b 文件名  --删除本文件所有ACL权限</span><br><span class="line"></span><br><span class="line">setfacl [-m u：用户名：权限 （设定权限），-m g：组名：权限 （设定权限）][-R(递归执行，文件夹下所有文件都有ACL权限)]文件</span><br><span class="line"></span><br><span class="line">setfacl [-m d:u：用户名：权限 （设定权限）]文件名  --文件夹下的新创建文件都有ACL权限</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">setUID, 命令执行者操作可执行程序时 ，过程中变为所属者的身份，获得它的权限 chmod 4755 文件名</span><br></pre></td></tr></table></figure>
-<p>1，可执行程序才能设置</p>
-<p>2，执行者对程序有x权限</p>
-<p>3，灵魂附体</p>
-<p>4，只在命令执行过程中获得</p>
-<p>危险setUID，可能会在执行过程中改变系统文件</p>
-<p>setUID和setGID针对文件相似，区别是灵魂附体是组，而不是所有者。这两种命令的作用是把一些只有root或者特定用户操作的命令分配给其他用户。比如普通用户可以改密码，普通用户locate查找功能</p>
-<p>setGID对目录的作用是创建新文件或目录，所属组变为此目录的所属组。</p>
-<p>SBIT粘着位权限，只对目录有效 chmod1755 目录名  chmod o+t 目录名</p>
-<p>普通用户对目录有读写权限，在目录中创建新文件。新文件只可以本用户删除，/tmp/就有此权限。</p>
-<p>chattr [+-=  i，a]文件或目录</p>
-<p>i 锁定文件(对文件只能看不能改，对目录只能修改当前目录中文件内容，对目录不能操作)</p>
-<p>a 锁定文件，但只可以往里面增加(对文件只能追加，不能更改删除，对目录里只能增加和修改文件，不允许删除)</p>
-<h3 id="sudo命令：管理员的命令赋予其他用户"><a href="#sudo命令：管理员的命令赋予其他用户" class="headerlink" title="sudo命令：管理员的命令赋予其他用户"></a>sudo命令：管理员的命令赋予其他用户</h3><p>visudo命令：改变的是/etc/sudoers配置文件：用户名 ALL=(ALL) 命令（绝对路径）</p>
-<p>visudo   –直接修改文件，此命令也可以用vim实现</p>
-<p>sudo -l  –查看当前sudo命令</p>
-<p>sudo 命令（绝对路径）  –执行root赋予的命令</p>
-<h2 id="文件系统管理"><a href="#文件系统管理" class="headerlink" title="文件系统管理"></a>文件系统管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df [-a(显示所有文件系统)，-h（习惯的单位容量）] 挂载点  --查看文件系统信息，分区占用情况</span><br><span class="line"></span><br><span class="line">du [-a(所有目录)，-h（习惯的单位容量），-s(只统计总大小)] 目录  --查看目录大小</span><br><span class="line"></span><br><span class="line">dumpe2fs 分区设备名 --查看分区信息</span><br><span class="line"></span><br><span class="line">mount [-l(查看挂载信息)]</span><br><span class="line"></span><br><span class="line">mount [-t文件类型，-o特殊选项]设备文件名  挂载点</span><br><span class="line"></span><br><span class="line">fdisk -l --查看分区信息</span><br></pre></td></tr></table></figure>
-<p>分区过程：</p>
-<p>1,</p>
-<p>-分区：fdisk /dev/sdb（新的硬盘）–手工给新的硬盘分区，用各种命令完成分区过程</p>
-<p>-格式化：mkfs  -t ext4 /dev/sdb1   用ext4文件系统格式化分区（分区中建立一个个小格子），（注意不能格式化扩展分区，要格式化扩展分区里面的逻辑分区）</p>
-<p>-建立挂载点挂载即可使用  （用命令挂载重启后消失，需要自动挂载）</p>
-<p>2,</p>
-<p>自动挂载分区：</p>
-<p>vim /etc/fstab  修改配置文件  此配置文件在开机启动时根据文件信息自动挂载分区（开机启动默认，改变默认相当于每次开机都自己挂载）</p>
-<p>/dev/sdb1   /disk1 挂载点（空目录）         ext4文件系统  1 2</p>
-<p>注意：不能写错</p>
-<p>如果写错信息，系统启动错误：mount -o remount,rw / –改变根目录权限，挂载写权限（因为文件在/etc/fstab,），有了权限可以修改配置文件，改正确可以运行</p>
-<p>如果配置文件根分区信息错误，系统不会启动</p>
-<p>分配swap交换分区：</p>
-<p>1，free [-m 文件大小为MB]–查看内存和swap信息，使用情况</p>
-<p>cached 缓存：读数据更块</p>
-<p>buffer 缓冲：写数据更快</p>
-<p>2，-按照之前fdisk命令新建swap分区，改变ID为82，（swap专用）</p>
-<p>   -partprobe</p>
-<p>   -格式化：mkswap /dev/sdb6</p>
-<p>   -swapon /dev/sdb6  –加入分区  swapon /dev/sdb6  –取消分区     （用命令挂载重启后消失，需要自动挂载）</p>
-<p>3，自动挂载分区：</p>
-<p>vim /etc/fstab  修改配置文件  </p>
-<p>/dev/sdb6   swap 挂载点         swap  0 0 </p>
-<h3 id="rpm包安装的服务启动"><a href="#rpm包安装的服务启动" class="headerlink" title="rpm包安装的服务启动"></a>rpm包安装的服务启动</h3><h4 id="独立服务启动"><a href="#独立服务启动" class="headerlink" title="独立服务启动"></a>独立服务启动</h4><ol>
-<li><p>/etc/init.d/独立服务名  start|stop|status|restart</p>
-</li>
-<li><p>service 独立服务名  start|stop|status|restart</p>
-</li>
-</ol>
-<p>chkconfig –list   –检查服务启动信息</p>
-<p>chkconfig –status-all   –所有rpm安装的服务的状态</p>
-<h4 id="独立服务自启动"><a href="#独立服务自启动" class="headerlink" title="独立服务自启动"></a>独立服务自启动</h4><p>1.chkconfig –level 2345  独立服务名 on –开启</p>
-<p>chkconfig   独立服务名 off  –关闭</p>
-<p>2.修改/etc/rc.d/rc.local文件      /etc/rc.d/init.d/httpd start   (服务绝对路径 start)</p>
-<p>3.ntsysv命令</p>
-<h4 id="基于xinetd服务"><a href="#基于xinetd服务" class="headerlink" title="基于xinetd服务"></a>基于xinetd服务</h4><p>1.修改/etc/xinetd.d/telnet   disable=no,</p>
-<p>  重启service xinetd restart</p>
-<p>2.chkconfig telnet on|off</p>
-<p>3.ntsysv命令</p>
-<h4 id="源码包安装的服务启动"><a href="#源码包安装的服务启动" class="headerlink" title="源码包安装的服务启动"></a>源码包安装的服务启动</h4><p>1，绝对路径  start</p>
-<p>2.vim  /etc/rc.d/rc.local  服务绝对路径 start</p>
-<h2 id="linux系统管理"><a href="#linux系统管理" class="headerlink" title="linux系统管理"></a>linux系统管理</h2><h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ps aux --查看所有进程   </span><br><span class="line"></span><br><span class="line">pstree</span><br><span class="line"></span><br><span class="line">ps -le --查看所有进程</span><br><span class="line"></span><br><span class="line">top  --查看健康状态</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/04/26/Linux常用命令/#more">more >></a>
+        
       
 
       
@@ -817,40 +608,9 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
 <p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408113609104.png" alt="下载界面" title="下载界面，左边为稳定版，右边为最新版，下载任意一个"></p>
 <p>2.进入终端，查看安装是否成功</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line"></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p>3.下载cnpm并且安装hexo框架</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">cnpm -v                    ----查看安装成功</span><br><span class="line"></span><br><span class="line">cnpm install -g hexo-cli   ----安装hexo</span><br><span class="line"></span><br><span class="line">hexo -v                    ----查看安装成功</span><br></pre></td></tr></table></figure>
-<h2 id="建立本地博客"><a href="#建立本地博客" class="headerlink" title="建立本地博客"></a>建立本地博客</h2><p>1.进入用户家目录（/home/user）,新建文件夹blog</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"></span><br><span class="line">mkdir blog                ----此文件夹就是博客目录，博客资源都在此处</span><br><span class="line"></span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408112917711.png" alt="生成博客内容" title="博客包含内容"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo s            ---启动博客，在本地4000端口打开,如图1</span><br><span class="line">hexo n <span class="string">"test"</span>     ---新建博客文章<span class="built_in">test</span></span><br><span class="line">hexo c            ---清除</span><br><span class="line">hexo g            ---生成</span><br><span class="line">hexo s            ---再次启动博客，此时博客更新，如图2</span><br><span class="line"></span><br><span class="line"><span class="comment">#具体hexo命令介绍可自行查找理解</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408121652468.png" alt="博客预览"></p>
-<center>图1</center>
-
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408115636865.png" alt="博客预览"></p>
-<center>图2</center>
-
-<h2 id="通过Github部署博客到远端"><a href="#通过Github部署博客到远端" class="headerlink" title="通过Github部署博客到远端"></a>通过Github部署博客到远端</h2><p>1.在Github新建仓库，名称必须为：‘用户名’.github.io<br>2.安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-<p>3.配置文件_config.yml,添加到 #Deployment</p>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-20190408144220192.png" alt="配置文件"></p>
-<p>4.部署到Github</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>5.浏览器打开 ‘用户名’.github.io</p>
-<h2 id="主题下载"><a href="#主题下载" class="headerlink" title="主题下载"></a>主题下载</h2><p>从网上下载hexo主题的代码到本地，例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git</span><br></pre></td></tr></table></figure>
-<p>此时在blog的theme文件夹下有一个新文件夹yilia，修改配置文件_config.yml</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Extensions</span></span><br><span class="line">theme:yilia</span><br></pre></td></tr></table></figure>
-<p>可以通过上图找到所在位置，修改完毕后，清理生成再部署就会生成新主题</p>
-<p><img src="/2019/04/02/搭建Hexo博客/markdown-img-paste-2019040814554139.png" alt="预览新主题"></p>
-<h2 id="不同电脑操作"><a href="#不同电脑操作" class="headerlink" title="不同电脑操作"></a>不同电脑操作</h2><h3 id="在建立博客的电脑操作"><a href="#在建立博客的电脑操作" class="headerlink" title="在建立博客的电脑操作"></a>在建立博客的电脑操作</h3><p>1.在Github仓库建立hexo分支</p>
-<p>2.同时在博客建立hexo分支</p>
-<p>3.在本地把博客内容源文件推送到远端存储</p>
-<h3 id="在另一台电脑的操作"><a href="#在另一台电脑的操作" class="headerlink" title="在另一台电脑的操作"></a>在另一台电脑的操作</h3><p>1.搭建本机环境： Nodejs，git hexo框架等</p>
-<p>2.把Github上的hexo分支，也就是源文件克隆到本地<br>3.进入克隆文件内部，内容就是上传的内容，就是在其他电脑上已经记录生成的内容，，如果直接运行hexo命令会出现错误，需要建立本文件内的hexo环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b hexo + 仓库地址</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span>  *.github.io --仓库名</span><br><span class="line"></span><br><span class="line">npm install hexo --save （如果之前换了cnpm就用cnpm）</span><br><span class="line"></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>此时就可以直接在本地文件夹用hexo命令写博客了，写完部署到远端，同时在用git把本地文件上传到Github仓库的hexo分支，相当于把源代码保存在那里，下次写作合并本地与远端仓库即可。</p>
-<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/index.html</a></p>
-
+        
+          <a class="article-more-a" href="/2019/04/02/搭建Hexo博客/#more">more >></a>
+        
       
 
       
@@ -902,7 +662,7 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 Addperson
     	</div>
 
       	<div class="footer-right">

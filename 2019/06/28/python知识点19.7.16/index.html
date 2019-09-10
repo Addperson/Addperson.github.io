@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>python知识点 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。  1234kvps = &amp;#123; &apos;1&apos; : [1,1], &apos;2&apos; : [2,2">
+  <meta name="description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python知识点">
 <meta property="og:url" content="http://yoursite.com/2019/06/28/python知识点19.7.16/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。  1234kvps = &amp;#123; &apos;1&apos; : [1,1], &apos;2&apos; : [2,2">
+<meta property="og:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy1.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy2.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy3.png">
 <meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/and,or,not.png">
-<meta property="og:updated_time" content="2019-07-20T02:31:45.318Z">
+<meta property="og:updated_time" content="2019-09-10T08:37:43.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python知识点">
-<meta name="twitter:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。  1234kvps = &amp;#123; &apos;1&apos; : [1,1], &apos;2&apos; : [2,2">
+<meta name="twitter:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
 <meta name="twitter:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -55,7 +55,7 @@
 			<img src="/assets/me.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Addperson</a></h1>
 		</hgroup>
 		
 
@@ -113,7 +113,7 @@
 				<img src="/assets/me.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Addperson</h1>
 			</hgroup>
 			
 			
@@ -194,6 +194,7 @@
 <p><img src="/2019/06/28/python知识点19.7.16/copy2.png" alt></p>
 <p>b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。</p>
 <p><img src="/2019/06/28/python知识点19.7.16/copy3.png" alt></p>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>].append(<span class="number">2</span>)</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，所以改变子对象两个都改变。</span></span><br></pre></td></tr></table></figure>
 <pre><code>{&apos;1&apos;: [1, 1, 2], &apos;2&apos;: [2, 2]}
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : <span class="number">1</span>, <span class="string">'2'</span> : <span class="number">2</span> &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = <span class="number">5</span></span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，改变一个不影响其他。</span></span><br></pre></td></tr></table></figure>
@@ -412,7 +413,7 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 Addperson
     	</div>
 
       	<div class="footer-right">
