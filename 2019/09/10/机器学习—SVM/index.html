@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python知识点 | Hexo</title>
+  <title>机器学习—SVM | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
+  <meta name="description" content="SVM 支持向量机 线性可分支持向量机 硬间隔最大化 硬间隔支持向量机   线性支持向量机 软间隔最大化 软间隔支持向量机   非线性支持向量机 核函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python知识点">
-<meta property="og:url" content="http://yoursite.com/2019/06/28/python知识点19.7.16/index.html">
+<meta property="og:title" content="机器学习—SVM">
+<meta property="og:url" content="http://yoursite.com/2019/09/10/机器学习—SVM/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
+<meta property="og:description" content="SVM 支持向量机 线性可分支持向量机 硬间隔最大化 硬间隔支持向量机   线性支持向量机 软间隔最大化 软间隔支持向量机   非线性支持向量机 核函数">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy1.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy2.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy3.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/and,or,not.png">
-<meta property="og:updated_time" content="2019-09-10T08:37:43.075Z">
+<meta property="og:updated_time" content="2019-09-10T08:51:04.831Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python知识点">
-<meta name="twitter:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy1.png">
+<meta name="twitter:title" content="机器学习—SVM">
+<meta name="twitter:description" content="SVM 支持向量机 线性可分支持向量机 硬间隔最大化 硬间隔支持向量机   线性支持向量机 软间隔最大化 软间隔支持向量机   非线性支持向量机 核函数">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -159,14 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python知识点19.7.16" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-机器学习—SVM" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python知识点
+      机器学习—SVM
     </h1>
   
 
@@ -177,8 +172,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/06/28/python知识点19.7.16/" class="archive-article-date">
-  	<time datetime="2019-06-28T10:02:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
+<a href="/2019/09/10/机器学习—SVM/" class="archive-article-date">
+  	<time datetime="2019-09-10T08:50:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
 </a>
         <!-- 开始添加字数统计-->
                 
@@ -188,92 +183,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="引用，深拷贝与浅拷贝"><a href="#引用，深拷贝与浅拷贝" class="headerlink" title="引用，深拷贝与浅拷贝"></a>引用，深拷贝与浅拷贝</h6><p>1、b = a: 赋值引用，a 和 b 都指向同一个对象。</p>
-<p><img src="/2019/06/28/python知识点19.7.16/copy1.png" alt></p>
-<p>2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。</p>
-<p><img src="/2019/06/28/python知识点19.7.16/copy2.png" alt></p>
-<p>b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。</p>
-<p><img src="/2019/06/28/python知识点19.7.16/copy3.png" alt></p>
+        <h3 id="SVM-支持向量机"><a href="#SVM-支持向量机" class="headerlink" title="SVM 支持向量机"></a>SVM 支持向量机</h3><ul>
+<li>线性可分支持向量机<ul>
+<li>硬间隔最大化</li>
+<li>硬间隔支持向量机</li>
+</ul>
+</li>
+<li>线性支持向量机<ul>
+<li>软间隔最大化</li>
+<li>软间隔支持向量机</li>
+</ul>
+</li>
+<li>非线性支持向量机<ul>
+<li>核函数</li>
+</ul>
+</li>
+</ul>
 <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>].append(<span class="number">2</span>)</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，所以改变子对象两个都改变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1, 2], &apos;2&apos;: [2, 2]}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : <span class="number">1</span>, <span class="string">'2'</span> : <span class="number">2</span> &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = <span class="number">5</span></span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，改变一个不影响其他。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: 1, &apos;2&apos;: 2}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = [<span class="number">3</span>,<span class="number">3</span>]</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，但第一个重新指向新列表，改变第一个，第二个不变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1], &apos;2&apos;: [2, 2]}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]] <span class="comment">#原始对象</span></span><br><span class="line"> </span><br><span class="line">b = a                       <span class="comment">#赋值，传对象的引用</span></span><br><span class="line">c = copy.copy(a)            <span class="comment">#对象拷贝，浅拷贝</span></span><br><span class="line">d = copy.deepcopy(a)        <span class="comment">#对象拷贝，深拷贝</span></span><br><span class="line"> </span><br><span class="line">a.append(<span class="number">5</span>)                 <span class="comment">#修改对象a</span></span><br><span class="line">a[<span class="number">4</span>].append(<span class="string">'c'</span>)            <span class="comment">#修改对象a中的['a', 'b']数组对象</span></span><br><span class="line"> </span><br><span class="line">print( <span class="string">'a = '</span>, a )</span><br><span class="line">print( <span class="string">'b = '</span>, b )</span><br><span class="line">print( <span class="string">'c = '</span>, c )</span><br><span class="line">print( <span class="string">'d = '</span>, d )</span><br></pre></td></tr></table></figure>
-<pre><code>a =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-b =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-c =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]]
-d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
-</code></pre><h6 id="Python中的对象包含三要素："><a href="#Python中的对象包含三要素：" class="headerlink" title="Python中的对象包含三要素："></a>Python中的对象包含三要素：</h6><p>id、type、value</p>
-<p>其中id用来唯一标识一个对象，type标识对象的类型，value是对象的值</p>
-<p>is判断的是a对象是否就是b对象，是通过id来判断的</p>
-<p>如果a,b为字符串不可变类型，指向相同地址，所以  a is b</p>
-<p>==判断的是a对象的值是否和b对象的值相等，是通过value来判断的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'123'</span></span><br><span class="line">b=<span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a <span class="keyword">is</span> b</span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><h6 id="python中的布尔值"><a href="#python中的布尔值" class="headerlink" title="python中的布尔值"></a>python中的布尔值</h6><p>下列对象的布尔值都是False：</p>
-<p>NONE;</p>
-<p>False(布尔类型)</p>
-<p>所有的值为零的数</p>
-<pre><code>0（整型）
-
-0.0（浮点型）
-
-0L(长整型)
-
-0.0+0.0j(复数)
-</code></pre><p>“”(空字符串)</p>
-<p><a href="空列表"></a></p>
-<p>()(空元组)</p>
-<p>{}(空字典)</p>
-<h6 id="python中主要存在四种命名方式："><a href="#python中主要存在四种命名方式：" class="headerlink" title="python中主要存在四种命名方式："></a>python中主要存在四种命名方式：</h6><p>1、object #公用方法</p>
-<p>2、_object #半保护</p>
-<pre><code> #被看作是“protect”，意思是只有类对象和子类对象自己能访问到这些变量，
-  在模块或类外不可以使用，不能用’from module import *’导入。
-# __object 是为了避免与子类的方法名称冲突， 对于该标识符描述的方法，父
-  类的方法不能轻易地被子类的方法覆盖，他们的名字实际上是
-  _classname__methodname。
-</code></pre><p>3、_ _ object  #全私有，全保护</p>
-<pre><code>#私有成员“private”，意思是只有类对象自己能访问，连子类对象也不能访
-   问到这个数据，不能用’from module import *’导入。
-</code></pre><p>4、_ _ object_ _     #内建方法，用户不要这样定义</p>
-<h6 id="Python语言中有关复数的概念："><a href="#Python语言中有关复数的概念：" class="headerlink" title="Python语言中有关复数的概念："></a>Python语言中有关复数的概念：</h6><p>1、虚数不能单独存在，它们总是和一个值为0.0的实数部分一起构成一个复数</p>
-<p>2、复数由实数部分和虚数部分构成</p>
-<p>3、表示虚数的语法：real+imagej</p>
-<p>4、实数部分和虚数部分都是浮点数</p>
-<p>5、虚数部分必须有后缀j或J</p>
-<p>复数的内建属性：</p>
-<p>复数对象拥有数据属性，分别为该复数的实部和虚部。</p>
-<p>复数还拥有conjugate方法，调用它可以返回该复数的共轭复数对象。</p>
-<p>复数属性：real(复数的实部)、imag(复数的虚部)、conjugate()（返回复数的共轭复数）</p>
-<h6 id="python-装饰器"><a href="#python-装饰器" class="headerlink" title="python 装饰器"></a>python 装饰器</h6><p><a href="https://www.runoob.com/w3cnote/python-func-decorators.html" target="_blank" rel="noopener">python函数装饰器</a></p>
-<h6 id="列表-，元组，字典，集合"><a href="#列表-，元组，字典，集合" class="headerlink" title="列表 ，元组，字典，集合"></a>列表 ，元组，字典，集合</h6><p>1、Python 中的 tuple 结构为 “不可变序列”，用小括号表示。为了区别数学中表示优先级的小括号，当 tuple 中只含一个元素时，需要在元素后加上逗号。如（1，）</p>
-<h6 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h6><p>Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。</p>
-<p>最典型的例子，如要输出字符串 \n，由于反斜杠的转义，因此一般的输出语句为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'\\n'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>\n
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">r"\\n"</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>\\n
-</code></pre><p><img src="/2019/06/28/python知识点19.7.16/and,or,not.png" alt></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &gt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>c
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &gt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>&gt;<span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>False
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &lt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &lt; <span class="string">'b'</span> <span class="keyword">and</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>c
-</code></pre><h6 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h6><p>map() 会根据提供的函数对指定序列做映射。</p>
-<p>第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。</p>
-<p>map() 函数语法：<br>map(function, iterable, …)</p>
-<p>参数<br>function – 函数<br>iterable – 一个或多个序列</p>
-<p>返回值<br>Python 2.x 返回列表。</p>
-<p>Python 3.x 返回迭代器。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a>线性可分支持向量机</h4><ul>
+<li>定义：给定线性可分数据集，通过间隔最大化得到分离超平面：<br>$$<br>y(X)=W^T\phi(X)+b<br>$$<br>相应的决策函数为$f(x)=sign \left(W^T\phi(X)+b\right)$,该决策函数称为线性可分支持向量机。</li>
+<li>$\phi(X)$是某个确定的特征空间转换函数，它的作用是将$X$映射到更高的维度。最简单的就是$\phi(X)=X$。</li>
+<li>求解分离超平。面的问题可以转化为相应的凸二次规划问题</li>
+</ul>
+<h5 id="推导目标函数"><a href="#推导目标函数" class="headerlink" title="推导目标函数"></a>推导目标函数</h5><ol>
+<li>根据样本可知：$y(X_n)&gt;0,t_n=+1;y(X_n)&lt;0,t_n=-1;$<br>可知：$t_ny(X_n)&gt;0$ </li>
+<li>$W,b$等比例缩放，$t*y$也同样会缩放，为了计算我们需要把计算距离，所以：<br>$$<br>\frac{t_ny(X_n)}{|W|}=\frac{t_n(W^T\phi(X)+b)}{|W|}<br>$$</li>
+<li>目标函数：<br>$$<br>\mathop{\arg \max}_{W,b} \left{\frac{1}{|W|}\min_n[\frac{t_n(W^T\phi(X)+b)}{|W|}]\right}<br>$$</li>
+</ol>
+<h6 id="函数间隔和几何间隔"><a href="#函数间隔和几何间隔" class="headerlink" title="函数间隔和几何间隔"></a>函数间隔和几何间隔</h6><ul>
+<li>目标函数：$y(X)=W^T\phi(X)+b$</li>
+<li>总可以通过等比例缩放$W，b$的方法使得两类函数值都满足$|y|&gt;1$,$y$的值就为函数间隔，$\frac{y}{|W|}$为几何间隔，我们在求点到直线的距离时采用的就是几何间隔，也就是为什么要除以$W$的二范式。</li>
+<li>采用几何间隔，关注点放在空间距离上，而不会因为$W$的变化导致函数距离不断变化，在这个过程中，几何距离是不变的。优化中，我们的目标是选取最大几何间隔，所以我们先把函数间隔确立为1，通过改变$W$使$|W|$最小，这样我们才可以选取到最优解。</li>
+</ul>
+<h5 id="建立目标函数"><a href="#建立目标函数" class="headerlink" title="建立目标函数"></a>建立目标函数</h5><ol>
+<li>由以上可知可以通过缩放$W$使$|y|&gt;=1$</li>
+<li>约束条件：$t_n(W^T\phi(X_n)+b)=1$</li>
+<li>原目标函数：<br>$$<br>\arg \max_{W,b} \left{\frac{1}{|W|}\min_n[\frac{t_n(W^T\phi(X_n)+b)}{|W|}]\right}<br>$$</li>
+<li>新目标函数：<br>$$<br>\arg \min_{W,b}\frac{1}{2}|W|^2<br>$$</li>
+</ol>
+<h5 id="拉格朗日乘子法"><a href="#拉格朗日乘子法" class="headerlink" title="拉格朗日乘子法"></a>拉格朗日乘子法</h5><p>$$<br>L(W,b,\alpha)=\frac{1}{2}|W|^2-\sum_{n=1}^N\alpha_n{t_n(W^T\phi(X_n)+b)-1}<br>$$</p>
+<ol>
+<li>原问题是极小极大问题<br>$$<br>\min_{W,b} \max_\alpha L(W,b,\alpha)<br>$$</li>
+<li><p>原问题的对偶问题是极大极小问题<br>$$<br>\max_\alpha \min_{W,b} L(W,b,\alpha)<br>$$</p>
+</li>
+<li><p>将拉格朗日函数分别对$W,b$求导并令其为0,是为了先求极小值：<br>$$<br>\begin{aligned}<br> &amp;\frac{\partial L}{\partial W}=0\Rightarrow W=\sum_{n=1}^N\alpha_nt_n\phi(X_n)\<br> &amp;\frac{\partial L}{\partial b}=0\Rightarrow 0=\sum_{n=1}^N\alpha_nt_n<br>\end{aligned}<br>$$</p>
+</li>
+<li>将所求结果代入拉格朗日函数中，得到：<br>$$<br>\widetilde{L}(\alpha)=\sum_{n=1}^N\alpha_n-\frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)<br>$$</li>
+<li>上式已经求出了针对$W,b$的极小值,所以通过求极大值求解，整理得：<br>$$<br>\begin{aligned}<br> &amp;\min_\alpha \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)-\sum_{n=1}^N\alpha_n\<br> &amp;\sum_{n=1}^N\alpha_nt_n=0\<br> &amp;\alpha_n&gt;=0, n=1,2,3\dots N<br>\end{aligned}<br>$$</li>
+<li>求解$\alpha^<em>$,计算：<br>$$<br>\begin{aligned}<br> &amp; W^</em>=\sum_{n=1}^N\alpha_n^<em>t_n\phi(X_n)\<br> &amp; b^</em>=y_j-\sum_{n=1}^N \alpha_n^<em>y_n(x_n,x_j)<br>\end{aligned}<br>$$<br>求出分离超平面：<br>$$<br>W^</em>\phi(X)+b^<em>=0<br>$$<br>分类决策函数：<br>$$<br>f(x)=sign(W^</em>\phi(X)+b^*)<br>$$</li>
+<li>支持向量由$KKT$互补条件可知：$a^<em>_i(t_n(W^</em>\phi(X)+b^<em>)-1)=0$,对于$a_i^</em>&gt;0$的实例点，有$t_n(W^<em>\phi(X)+b^</em>)=1或W^<em>\phi(X)+b^</em>)=\pm1$</li>
+</ol>
+<h4 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h4><ul>
+<li>若数据线性不可分，则增加松弛因子$\xi_n \geq0 $,使函数间隔加上松弛变大于等于1，这样约束条件变成：<br>$$<br>t_n(W^T\phi(X_n)+b)\geq1-\xi_n<br>$$</li>
+<li>目标函数：<br>$$<br>\min_{W,b}\frac{1}{2}|W|^2+C\sum_{n=1}^N\xi_n<br>$$</li>
+<li>和线性可分支持向量机推导相同，最后得到的优化任务为：<br>$$<br>\begin{aligned}<br>  &amp;\min_\alpha \frac{1}{2}\sum_{n=1}^N\sum_{m=1}^N\alpha_n\alpha_mt_nt_mk(X_n,X_m)-\sum_{n=1}^N\alpha_n\<br>  &amp;\sum_{n=1}^N\alpha_nt_n=0\<br>  &amp;\alpha_n&gt;=0, n=1,2,3\dots N\<br>  &amp;C-a_n-\mu_n=0\<br>  &amp;\mu_n&gt;=0, n=1,2,3\dots N<br>\end{aligned}<br>$$</li>
+<li>最后所求得的分离超平面与决策函数同上，需要注意在计算$b^*$时，需要满足条件$O&lt;\alpha_n&lt;C$的向量</li>
+</ul>
+<h4 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h4><ul>
+<li>使用核函数，将输入空间映射到特征空间，从而使得原本线性不可分的样本可以在特征空间可分，由推导过程可知，最后的优化任务需要计算向量的内积，我们不需要再通过计算推导，直接通过核函数计算内积</li>
+<li>多项式核函数：<br>$$<br>k\langle x_1,x_2\rangle=(\langle x_1,x_2\rangle+R)^d<br>$$</li>
+<li>高斯核函数：<br>$$<br>k\langle x_1,x_2\rangle=\exp\left {-\frac{|x_1-x_2|^2}{2\sigma^2}\right}<br>$$</li>
+<li>字符串核函数</li>
+</ul>
 
       
 
@@ -354,7 +325,7 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/28/python知识点19.7.16/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/10/机器学习—SVM/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -368,18 +339,9 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
   
 <nav id="article-nav">
   
-    <a href="/2019/09/10/机器学习-决策树算法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          机器学习-决策树算法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/26/Linux常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux常用命令</div>
+    <a href="/2019/09/10/机器学习—线性回归与LR/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习—线性回归与LR</div>
       <i class="icon-circle-right"></i>
     </a>
   

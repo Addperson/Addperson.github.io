@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python知识点 | Hexo</title>
+  <title>机器学习-决策树算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
+  <meta name="description" content="决策树信息熵 熵 联合熵 条件熵 互信息  决策树算法 信息增益 ID3 C4.5 CART">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python知识点">
-<meta property="og:url" content="http://yoursite.com/2019/06/28/python知识点19.7.16/index.html">
+<meta property="og:title" content="机器学习-决策树算法">
+<meta property="og:url" content="http://yoursite.com/2019/09/10/机器学习-决策树算法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
+<meta property="og:description" content="决策树信息熵 熵 联合熵 条件熵 互信息  决策树算法 信息增益 ID3 C4.5 CART">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy1.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy2.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy3.png">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/and,or,not.png">
-<meta property="og:updated_time" content="2019-09-10T08:37:43.075Z">
+<meta property="og:updated_time" content="2019-09-10T08:46:44.567Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python知识点">
-<meta name="twitter:description" content="引用，深拷贝与浅拷贝1、b = a: 赋值引用，a 和 b 都指向同一个对象。  2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。  b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/28/python知识点19.7.16/copy1.png">
+<meta name="twitter:title" content="机器学习-决策树算法">
+<meta name="twitter:description" content="决策树信息熵 熵 联合熵 条件熵 互信息  决策树算法 信息增益 ID3 C4.5 CART">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -159,14 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python知识点19.7.16" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-机器学习-决策树算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python知识点
+      机器学习-决策树算法
     </h1>
   
 
@@ -177,8 +172,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/06/28/python知识点19.7.16/" class="archive-article-date">
-  	<time datetime="2019-06-28T10:02:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
+<a href="/2019/09/10/机器学习-决策树算法/" class="archive-article-date">
+  	<time datetime="2019-09-10T08:44:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
 </a>
         <!-- 开始添加字数统计-->
                 
@@ -188,92 +183,79 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="引用，深拷贝与浅拷贝"><a href="#引用，深拷贝与浅拷贝" class="headerlink" title="引用，深拷贝与浅拷贝"></a>引用，深拷贝与浅拷贝</h6><p>1、b = a: 赋值引用，a 和 b 都指向同一个对象。</p>
-<p><img src="/2019/06/28/python知识点19.7.16/copy1.png" alt></p>
-<p>2、b = a.copy(): 浅拷贝, a 和 b 是一个独立的对象，但他们的子对象还是指向统一对象（是引用）。</p>
-<p><img src="/2019/06/28/python知识点19.7.16/copy2.png" alt></p>
-<p>b = copy.deepcopy(a): 深度拷贝, a 和 b 完全拷贝了父对象及其子对象，两者是完全独立的。</p>
-<p><img src="/2019/06/28/python知识点19.7.16/copy3.png" alt></p>
+        <h4 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h4><h5 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h5><ul>
+<li>熵</li>
+<li>联合熵</li>
+<li>条件熵</li>
+<li>互信息</li>
+</ul>
+<h5 id="决策树算法"><a href="#决策树算法" class="headerlink" title="决策树算法"></a>决策树算法</h5><ul>
+<li>信息增益</li>
+<li>ID3</li>
+<li>C4.5</li>
+<li>CART</li>
+</ul>
 <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>].append(<span class="number">2</span>)</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，所以改变子对象两个都改变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1, 2], &apos;2&apos;: [2, 2]}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : <span class="number">1</span>, <span class="string">'2'</span> : <span class="number">2</span> &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = <span class="number">5</span></span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，改变一个不影响其他。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: 1, &apos;2&apos;: 2}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kvps = &#123; <span class="string">'1'</span> : [<span class="number">1</span>,<span class="number">1</span>], <span class="string">'2'</span> : [<span class="number">2</span>,<span class="number">2</span>] &#125;</span><br><span class="line">theCopy = kvps.copy()</span><br><span class="line">kvps[<span class="string">'1'</span>] = [<span class="number">3</span>,<span class="number">3</span>]</span><br><span class="line">print(theCopy)    <span class="comment">#拷贝所有父对象，子对象共有，但第一个重新指向新列表，改变第一个，第二个不变。</span></span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;1&apos;: [1, 1], &apos;2&apos;: [2, 2]}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>]] <span class="comment">#原始对象</span></span><br><span class="line"> </span><br><span class="line">b = a                       <span class="comment">#赋值，传对象的引用</span></span><br><span class="line">c = copy.copy(a)            <span class="comment">#对象拷贝，浅拷贝</span></span><br><span class="line">d = copy.deepcopy(a)        <span class="comment">#对象拷贝，深拷贝</span></span><br><span class="line"> </span><br><span class="line">a.append(<span class="number">5</span>)                 <span class="comment">#修改对象a</span></span><br><span class="line">a[<span class="number">4</span>].append(<span class="string">'c'</span>)            <span class="comment">#修改对象a中的['a', 'b']数组对象</span></span><br><span class="line"> </span><br><span class="line">print( <span class="string">'a = '</span>, a )</span><br><span class="line">print( <span class="string">'b = '</span>, b )</span><br><span class="line">print( <span class="string">'c = '</span>, c )</span><br><span class="line">print( <span class="string">'d = '</span>, d )</span><br></pre></td></tr></table></figure>
-<pre><code>a =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-b =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 5]
-c =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]]
-d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
-</code></pre><h6 id="Python中的对象包含三要素："><a href="#Python中的对象包含三要素：" class="headerlink" title="Python中的对象包含三要素："></a>Python中的对象包含三要素：</h6><p>id、type、value</p>
-<p>其中id用来唯一标识一个对象，type标识对象的类型，value是对象的值</p>
-<p>is判断的是a对象是否就是b对象，是通过id来判断的</p>
-<p>如果a,b为字符串不可变类型，指向相同地址，所以  a is b</p>
-<p>==判断的是a对象的值是否和b对象的值相等，是通过value来判断的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">'123'</span></span><br><span class="line">b=<span class="string">'123'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a <span class="keyword">is</span> b</span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><h6 id="python中的布尔值"><a href="#python中的布尔值" class="headerlink" title="python中的布尔值"></a>python中的布尔值</h6><p>下列对象的布尔值都是False：</p>
-<p>NONE;</p>
-<p>False(布尔类型)</p>
-<p>所有的值为零的数</p>
-<pre><code>0（整型）
-
-0.0（浮点型）
-
-0L(长整型)
-
-0.0+0.0j(复数)
-</code></pre><p>“”(空字符串)</p>
-<p><a href="空列表"></a></p>
-<p>()(空元组)</p>
-<p>{}(空字典)</p>
-<h6 id="python中主要存在四种命名方式："><a href="#python中主要存在四种命名方式：" class="headerlink" title="python中主要存在四种命名方式："></a>python中主要存在四种命名方式：</h6><p>1、object #公用方法</p>
-<p>2、_object #半保护</p>
-<pre><code> #被看作是“protect”，意思是只有类对象和子类对象自己能访问到这些变量，
-  在模块或类外不可以使用，不能用’from module import *’导入。
-# __object 是为了避免与子类的方法名称冲突， 对于该标识符描述的方法，父
-  类的方法不能轻易地被子类的方法覆盖，他们的名字实际上是
-  _classname__methodname。
-</code></pre><p>3、_ _ object  #全私有，全保护</p>
-<pre><code>#私有成员“private”，意思是只有类对象自己能访问，连子类对象也不能访
-   问到这个数据，不能用’from module import *’导入。
-</code></pre><p>4、_ _ object_ _     #内建方法，用户不要这样定义</p>
-<h6 id="Python语言中有关复数的概念："><a href="#Python语言中有关复数的概念：" class="headerlink" title="Python语言中有关复数的概念："></a>Python语言中有关复数的概念：</h6><p>1、虚数不能单独存在，它们总是和一个值为0.0的实数部分一起构成一个复数</p>
-<p>2、复数由实数部分和虚数部分构成</p>
-<p>3、表示虚数的语法：real+imagej</p>
-<p>4、实数部分和虚数部分都是浮点数</p>
-<p>5、虚数部分必须有后缀j或J</p>
-<p>复数的内建属性：</p>
-<p>复数对象拥有数据属性，分别为该复数的实部和虚部。</p>
-<p>复数还拥有conjugate方法，调用它可以返回该复数的共轭复数对象。</p>
-<p>复数属性：real(复数的实部)、imag(复数的虚部)、conjugate()（返回复数的共轭复数）</p>
-<h6 id="python-装饰器"><a href="#python-装饰器" class="headerlink" title="python 装饰器"></a>python 装饰器</h6><p><a href="https://www.runoob.com/w3cnote/python-func-decorators.html" target="_blank" rel="noopener">python函数装饰器</a></p>
-<h6 id="列表-，元组，字典，集合"><a href="#列表-，元组，字典，集合" class="headerlink" title="列表 ，元组，字典，集合"></a>列表 ，元组，字典，集合</h6><p>1、Python 中的 tuple 结构为 “不可变序列”，用小括号表示。为了区别数学中表示优先级的小括号，当 tuple 中只含一个元素时，需要在元素后加上逗号。如（1，）</p>
-<h6 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h6><p>Python 中字符串的前导 r 代表原始字符串标识符，该字符串中的特殊符号不会被转义，适用于正则表达式中繁杂的特殊符号表示。</p>
-<p>最典型的例子，如要输出字符串 \n，由于反斜杠的转义，因此一般的输出语句为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'\\n'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>\n
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">r"\\n"</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>\\n
-</code></pre><p><img src="/2019/06/28/python知识点19.7.16/and,or,not.png" alt></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &gt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>c
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &gt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>&gt;<span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>False
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &lt; <span class="string">'b'</span> <span class="keyword">or</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'a'</span></span><br><span class="line">print(a &lt; <span class="string">'b'</span> <span class="keyword">and</span> <span class="string">'c'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>c
-</code></pre><h6 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h6><p>map() 会根据提供的函数对指定序列做映射。</p>
-<p>第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。</p>
-<p>map() 函数语法：<br>map(function, iterable, …)</p>
-<p>参数<br>function – 函数<br>iterable – 一个或多个序列</p>
-<p>返回值<br>Python 2.x 返回列表。</p>
-<p>Python 3.x 返回迭代器。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Bagging和随机森林"><a href="#Bagging和随机森林" class="headerlink" title="Bagging和随机森林"></a>Bagging和随机森林</h5><h5 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h5><h5 id="条件熵"><a href="#条件熵" class="headerlink" title="条件熵"></a>条件熵</h5><p>$$<br>\begin{aligned}<br>    H(Y|X)&amp;=H(X,Y)-H(X) \<br>    &amp;=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x}p(x)\log p(x)\<br>    &amp;=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x}\left(\sum_yp(x,y)\right)\log p(x)\<br>    &amp;=-\sum_{x,y}p(x,y)\log p(x,y)   +\sum_{x,y}p(x,y)\log p(x)\<br>    &amp;=-\sum_{x,y}p(x,y)\log \frac{p(x,y)}{p(x)}\<br>    &amp;=-\sum_{x,y}p(x,y)\log p(y|x)<br>\end{aligned}<br>$$</p>
+<h5 id="相对熵"><a href="#相对熵" class="headerlink" title="相对熵"></a>相对熵</h5><p>设$p(x)、q(x)$是$X$中取值两个概率分布，则$p$对$q$的相对熵是：<br>$$<br>D(p||q)=\sum_{x}p(x)\log \frac{p(x)}{q(x)}=E_{p(x)}\log \frac{p(x)}{q(x)}<br>$$<br>相对熵可以度量两个随机变量之间的距离</p>
+<h5 id="互信息"><a href="#互信息" class="headerlink" title="互信息"></a>互信息</h5><ul>
+<li>两个随机变量$X,Y$的互信息,定义为$X,Y$的联合分布和独立分布乘积的相对熵</li>
+<li>$$I(X,Y)=D(P(X,Y)||P(X)P(Y))$$</li>
+<li>$$I(X,Y)=\sum_{x,y}p(x,y)\log \frac{p(x,y)}{p(x)p(y)}$$</li>
+</ul>
+<h5 id="其他公式（经推导得）"><a href="#其他公式（经推导得）" class="headerlink" title="其他公式（经推导得）"></a>其他公式（经推导得）</h5><ul>
+<li>$$H(Y|X)=H(X,Y)-H(X)$$</li>
+<li>$$H(Y|X)=H(Y)-I(X,Y)$$</li>
+<li>$$I(X,Y)=H(X)+H(Y)-H(X,Y)$$</li>
+</ul>
+<h5 id="决策树-1"><a href="#决策树-1" class="headerlink" title="决策树"></a>决策树</h5><ol>
+<li>决策树为树形结构，每个分支代表一个测试输出，每一个叶节点代表一种类别。</li>
+<li>以实例为基础的归纳学习。</li>
+<li>采用自顶向下的递归方法，基本思想是以信息熵为度量构建的一颗熵值下降最快的树，到叶子节点的熵为零，叶子节点属于同一类。</li>
+<li>与梯度下降类似，用贪心法求解。</li>
+</ol>
+<h5 id="决策树生成算法"><a href="#决策树生成算法" class="headerlink" title="决策树生成算法"></a>决策树生成算法</h5><ul>
+<li>建立决策树关键是在当前状态选择哪一个属性作为分类依据，根据目标不同分为三种算法：<ul>
+<li>ID3  信息增益</li>
+<li>C4.5  信息增益率</li>
+<li>CART  基尼指数</li>
+</ul>
+</li>
+</ul>
+<h5 id="ID3-信息增益"><a href="#ID3-信息增益" class="headerlink" title="ID3  信息增益"></a>ID3  信息增益</h5><p>使用信息增益$g(D,A)$进行特征选择</p>
+<ul>
+<li>概念：熵和条件熵的概率由样本数据估计得来的，我们成为经验熵和经验条件熵</li>
+<li>信息增益表示由于特征$A$的信息而使得类$A$的信息的不确定性减少的程度</li>
+<li>定义：$g(D,A)=H(D)-H(D|A)$,显然这是数据集$D$和特征$A$的互信息</li>
+</ul>
+<h6 id="计算方法："><a href="#计算方法：" class="headerlink" title="计算方法："></a>计算方法：</h6><ol>
+<li>计算数据集$  D$的经验熵$H(D)=-\sum_{k=1}^K \frac{|C_k|}{|D|}\log \frac{|C_k|}{|D|}$</li>
+<li>计算特征$A$对数据集$D$的经验条件熵$H(D|A)$</li>
+<li>计算信息增益：$g(D,A)=H(D)-H(D|A)$</li>
+</ol>
+<h6 id="经验条件熵-H-D-A-的推导"><a href="#经验条件熵-H-D-A-的推导" class="headerlink" title="经验条件熵$H(D|A)$的推导"></a>经验条件熵$H(D|A)$的推导</h6><p>$$<br>\begin{aligned}<br>    H(D|A)&amp;=-\sum_{i,k}p(D_k,A_i)\log p(D_k|A_i)\<br>    &amp;=-\sum_{i,k}p(A_i)p(D_k|A_i)\log p(D_k|A_i)\<br>    &amp;=-\sum_{i}^np(A_i)\sum_{k=1}^Kp(D_k|A_i)\log p(D_k|A_i)\<br>    &amp;=-\sum_{i}^n\frac{|D_i|}{|D|}\sum_{k=1}^K\frac{|D_{ik}|}{|D_i|}\log \frac{|D_{ik}|}{|D_i|}\<br>\end{aligned}<br>$$</p>
+<h6 id="其他目标"><a href="#其他目标" class="headerlink" title="其他目标"></a>其他目标</h6><ul>
+<li>信息增益率：$g_r(D,A)=g(D,A)/H(A)$</li>
+<li>基尼指数：$$Gini(p)=\sum_{k=1}^Kp_k(1-p_k)=1-\sum_{k=1}^Kp_k^2=1-\sum_{k=1}^K\left(\frac{|C_k|}{|D|}\right)^2$$</li>
+<li>信息增益率可以把信息增加的程度加入计算，基尼指数可以看做熵的近似计算</li>
+</ul>
+<h5 id="三种决策树算法"><a href="#三种决策树算法" class="headerlink" title="三种决策树算法"></a>三种决策树算法</h5><ul>
+<li>ID3决策时适应信息增益来选择特征，但如果选择取值更多的属性，会出现生成一个深度很浅的树，造成过拟合。所以有其他两种算法出现。</li>
+<li>总结： 一个属性信息增益大，表明该属性碎玉熵减少的能力更强，数据由不确定到确定性的能力越强。</li>
+<li>过拟合的处理方法：剪枝，随机森林。</li>
+</ul>
+<h5 id="Bagging策略"><a href="#Bagging策略" class="headerlink" title="Bagging策略"></a>Bagging策略</h5><ol>
+<li>在样本中重采样选取$n$个样本</li>
+<li>在所有属性上，对样本建立分类器(任意一种均可)</li>
+<li>重复以上步骤$m$次，得到$m$个分类器</li>
+<li>将数据方法这些分类器上，根据投票结果，决定数据属于哪一类</li>
+</ol>
+<h5 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h5><ol>
+<li>在样本中用Bootstrap重采样选取$n$个样本</li>
+<li>在所有属性上随机选择K个，建立CART决策树</li>
+<li>重复以上步骤$m$次，得到$m$个CART决策树</li>
+<li>这$m$个CART决策树形成随机森林，投票表决</li>
+</ol>
 
       
 
@@ -354,7 +336,7 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/28/python知识点19.7.16/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/10/机器学习-决策树算法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -368,18 +350,18 @@ d =  [1, 2, 3, 4, [&apos;a&apos;, &apos;b&apos;]]
   
 <nav id="article-nav">
   
-    <a href="/2019/09/10/机器学习-决策树算法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/10/机器学习—线性回归与LR/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          机器学习-决策树算法
+          机器学习—线性回归与LR
         
       </div>
     </a>
   
   
-    <a href="/2019/04/26/Linux常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux常用命令</div>
+    <a href="/2019/06/28/python知识点19.7.16/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python知识点</div>
       <i class="icon-circle-right"></i>
     </a>
   
